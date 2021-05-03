@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Shell prompt based on the Solarized Dark theme.
 
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
@@ -6,7 +8,7 @@ elif infocmp xterm-256color >/dev/null 2>&1; then
 	export TERM='xterm-256color';
 fi;
 
-## Applies different colors for directories, symlinks, etc. when using ls
+## Applies different colors for directories, symlinks, etc. when using ls.
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
@@ -67,7 +69,7 @@ if tput setaf 1 &> /dev/null; then
 	purple=$(tput setaf 125);
 	red=$(tput setaf 124);
 	violet=$(tput setaf 61);
-	white=$(tput setaf 15);
+	white=$(tput setaf 251);
 	yellow=$(tput setaf 136);
 else
 	bold='';

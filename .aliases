@@ -1,27 +1,29 @@
-# Removes branches that no longer exist in remote but are still present locally (gru is shorthand for git remove untracked)
+#!/usr/bin/env bash
+
+# Removes branches that no longer exist in remote but are still present locally (gru is shorthand for git remove untracked).
 alias gru="git fetch --prune && git branch -r | awk '{print \$1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print \$1}' | xargs git branch -D"
 
-# Copies the commit that HEAD points to 
+# Copies the commit that HEAD points to.
 alias cpcm="git log | head -1 | awk '{print \$2}' | pbcopy"
 
-# Shortcuts to commonly used folders 
+# Shortcuts to commonly used folders.
 alias dl="cd ~/Downloads"
 alias dk="cd ~/Desktop"
 alias rks="cd ~/Movies/RocketSim"
 
-# Use a long listing format 
+# Use a long listing format.
 alias ll='ls -la'
  
-# Show hidden files 
-alias l.='ls -d .* --color=auto'
+# Show hidden files.
+alias l.='ls -d .*'
 
-# Handy shortcuts 
+# Handy shortcuts.
 alias c='clear'
 alias h='history'
 alias j='jobs -l'
 alias g='git'
 
-# Easy navigation to parent folders 
+# Easy navigation to parent folders.
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -31,7 +33,7 @@ alias .3='cd ../../..'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 
-# Colorize the grep command output for ease of use (good for log files) 
+# Colorize the grep command output for ease of use (good for log files).
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'

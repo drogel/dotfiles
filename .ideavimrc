@@ -1,0 +1,10 @@
+" ======= IntelliJ IDEA specific settings =======
+"
+"
+
+" Invokes the AceJump action to perform fuzzy searches across the source code.
+noremap ff :action AceAction<CR>
+
+" Searches within the whole project.
+noremap <Space>f :action SearchEverywhere<CR>
+

@@ -1,0 +1,66 @@
+[alias]
+	# Displays a nice graph of commits and authors
+	graph = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
+
+	# Updates submodules recursively
+	su = submodule update --init --recursive
+	
+	# Lists currently used aliases
+	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+
+	# Displays the status in a short format
+	st = status -sb
+
+	# Displays the log only of the latest commit
+	last = log -1 HEAD --stat
+
+	# Opens side-by-side diff comparison
+	dv = difftool -t vimdiff -y
+	
+	# Search for commited code in the git history
+	se = !git rev-list --all | xargs git grep -F
+
+	# Diff with the previous commit
+	prev = diff HEAD~1
+
+	# Performs a pull operation, then updates submodules recursively
+	psu = !git pull && git submodule update --init --recursive
+
+	# Checkout
+	co = checkout
+
+	# Commit everything
+	ca = commit -a
+
+	# Commit amending and without editing the commit message
+	amend = commit --amend --no-edit
+	
+        # Add all, commit amending without editing the commit message, then push forcing
+	FORCE = !git add . && git commit --amend --no-edit && git push -f
+
+	# Short way of calling git diff
+	d = diff
+
+	# Find branches containing commit
+	fb = "!f() { git branch -a --contains $1; }; f"
+
+	# Find tags containing commit
+	ft = "!f() { git describe --always --contains $1; }; f"
+
+	# Find commits by source code
+	fc = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
+
+	# Find commits by commit message
+	fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+
+	# Remove branches that have already been merged with main.
+	# a.k.a. ‘delete merged’
+	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+
+	# List contributors with number of commits.
+	contributors = shortlog --summary --numbered
+
+	# Show the user email for the current repository.
+	whoami = config user.email
+[http]
+	sslVerify = false
