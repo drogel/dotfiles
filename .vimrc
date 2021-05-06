@@ -107,6 +107,10 @@ nnoremap <Leader>w $
 " It is easier for me to press <Space>b to go to the beginning of the line.
 nnoremap <Leader>b ^
 
+" Adds lines above or below current cursor without moving it.
+nnoremap <silent> ]<Space> :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
+nnoremap <silent> [<Space> :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
+
 " ======= Swift-specific mappings =======
 "
 "

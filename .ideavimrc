@@ -8,3 +8,9 @@ noremap ff :action AceAction<CR>
 " Searches within the whole project.
 noremap <Space>f :action SearchEverywhere<CR>
 
+" Emulates the vim-surround plugin.
+set surround
+
+" Emulates the argtextobj.vim plugin.
+set argtextobj
+

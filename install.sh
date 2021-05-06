@@ -35,6 +35,9 @@ for file in $INSTALL_SCRIPT_DIR/.{gitconfig,vimrc,xvimrc,gvimrc,ideavimrc,vim,ba
 	fi
 done;
 
+# Install the dracula vim theme.
+source install_vim_dracula.sh
+
 # Append the contents of the .vimrc file to the .xvimrc and .ideavimrc file so
 # that the vim configuration is shared across vim, xvim and IntelliJ IDEA. 
 # Do the same for the other vim-related configuration files, or else they won't
