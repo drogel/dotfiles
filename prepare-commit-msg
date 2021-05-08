@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Gets the full path of the branch, something like refs/heads/myBranchName.
+fullBranchPath=$(git symbolic-ref -q HEAD)
+
+# Gets the full branch path as an array, split by the '/' character.
+branchPaths=(${fullBranchPath//// }) 
+
+firstLine=$(head -n1 $1)
+
+# Check that this is not an amend by checking that the first line is empty.
+if [ -z "$firstLine"  ] ;then
+	# Insert the parts of the branch name as the commit message.
+	sed -i "1s/^/${branchPaths[-2]}(${branchPaths[-1]}): \n/" $1
+fi
