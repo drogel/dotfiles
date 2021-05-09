@@ -28,7 +28,7 @@ else
 fi;
 
 # First, copy the config files to the ~/ folder.
-for file in $DOTFILES_DIR/.{gitconfig,vimrc,xvimrc,gvimrc,ideavimrc,vim,bash_profile}; do
+for file in $DOTFILES_DIR/.{gitconfig,vimrc,xvimrc,gvimrc,ideavimrc,vim,inputrc,bash_profile}; do
 	if [ -r "$file" ] && [ -f "$file" ]; then
 			echo "Copying $file into the home directory...";
 			cp "$file" ~/;
