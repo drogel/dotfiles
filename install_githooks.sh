@@ -18,6 +18,13 @@ installGitHooksTracking() {
 	git config core.hooksPath .githooks;
 }
 
+installLocalGitHooks() {
+	echo "Installing the hooks in .git...";
+
+	# Copy the .githooks scripts to the project.
+	cp -i $INSTALL_SCRIPT_DIR/.githooks/* .git/hooks/;
+}
+
 # Get the path of this script.
 INSTALL_SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
@@ -26,11 +33,18 @@ INSTALL_SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd
 # folder of the project.
 echo "We are about to install some git hooks to your project. Do you want to track the hooks?";
 echo "If you say yes, then the hooks will be installed in a folder called .githooks in this project.";
-echo "If you say no, then the hooks will be installed in the .git folder of this project. By default, this folder is not tracked by git.";
+echo "If you say no, then the hooks will be installed in the .git folder of this project. By default, this folder is not tracked by git. I will ask you if I need to overwrite anything.";
 read -p "Do you want the hooks to be tracked by git? (y/n) " -n 1 shouldTrack;
 echo "";
+if [[ ! $shouldTrack =~ ^[YyNn]$ ]]; then
+	echo "I did not understand your answer. Exiting without installing...";
+	return;
+fi;
+
 if [[ $shouldTrack =~ ^[Yy]$ ]]; then
 	installGitHooksTracking;
+elif [[ $shouldTrack =~ ^[Nn]$ ]]; then
+	installLocalGitHooks;
 fi;
 
 echo "Done! The git hooks should be available now.";
