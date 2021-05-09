@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # This git hook will insert an editable prefix to the commit message. The
-# prefix will be built using the two last parts of the full branch path.
+# prefix will be built using the parts of the branch.
 # For example, if you are going to commit while in a branch called
-# 'feature/hooks', then this script wil add 'feature(hooks):' before your
+# 'feature/hooks', then this script will add 'feature(hooks):' before your
 # commit message. 
 
 # Gets the branch name.

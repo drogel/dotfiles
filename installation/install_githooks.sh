@@ -7,11 +7,14 @@ if [ ! -d .git/ ]; then
 	return;
 fi;
 
+# Get the dotfiles directory.
+DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && cd ../ && pwd )"
+
 installGitHooksTracking() {
 	echo "Installing the hooks in .githooks...";
 	
 	# Copy the .githooks folder to the project.
-	cp -R $INSTALL_SCRIPT_DIR/.githooks .;
+	cp -R $DOTFILES_DIR/.githooks .;
 	
 	# Change the local git configuration for this project so that the hooks
 	# defined in the .githooks folder are used.
@@ -22,11 +25,8 @@ installLocalGitHooks() {
 	echo "Installing the hooks in .git...";
 
 	# Copy the .githooks scripts to the project.
-	cp -i $INSTALL_SCRIPT_DIR/.githooks/* .git/hooks/;
+	cp -i $DOTFILES_DIR/.githooks/* .git/hooks/;
 }
-
-# Get the path of this script.
-INSTALL_SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 # Check if the user wants to track the hooks we are about to add. If the user
 # does not want to track them, the installation will be done only on the .git

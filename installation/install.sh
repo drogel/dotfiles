@@ -11,11 +11,11 @@ fi;
 # Get the path from which this script was called.
 INSTALL_SCRIPT_CALL_PATH=`pwd`
 
-# Get the path of this script.
-INSTALL_SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+# Get the path of the parent of this script. This is where the dotfiles are.
+DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && cd ../ && pwd )"
 
-# Go to the directory of this script.
-cd $INSTALL_SCRIPT_DIR
+# Go to the directory of the dotfiles.
+cd $DOTFILES_DIR
 
 # Check for updates.
 read -p "Do you want me to see if there's an updated version of the dotfiles? (y/n) " -n 1 shouldUpdate;
@@ -28,7 +28,7 @@ else
 fi;
 
 # First, copy the config files to the ~/ folder.
-for file in $INSTALL_SCRIPT_DIR/.{gitconfig,vimrc,xvimrc,gvimrc,ideavimrc,vim,bash_profile}; do
+for file in $DOTFILES_DIR/.{gitconfig,vimrc,xvimrc,gvimrc,ideavimrc,vim,bash_profile}; do
 	if [ -r "$file" ] && [ -f "$file" ]; then
 			echo "Copying $file into the home directory...";
 			cp "$file" ~/;
@@ -36,7 +36,7 @@ for file in $INSTALL_SCRIPT_DIR/.{gitconfig,vimrc,xvimrc,gvimrc,ideavimrc,vim,ba
 done;
 
 # Install the dracula vim theme.
-source install_vim_dracula.sh
+source installation/install_vim_dracula.sh
 
 # Append the contents of the .vimrc file to the .xvimrc and .ideavimrc file so
 # that the vim configuration is shared across vim, xvim and IntelliJ IDEA. 
@@ -45,7 +45,7 @@ source install_vim_dracula.sh
 appendContentsIfAvailable() {
 	FROM_FILE=$1
 	TO_FILE=$2
-	if [ -r $FROM_FILE ] && [ -f $FROM_FILE ]; then
+	if [ -r ~/$FROM_FILE ] && [ -f ~/$FROM_FILE ]; then
 		echo "Completing $TO_FILE configuration...";
 		cat ~/$FROM_FILE >> ~/$TO_FILE;
 	fi
@@ -58,7 +58,7 @@ appendContentsIfAvailable .vimrc .ideavimrc
 # Prepend the path of this script to the .bash_profile so it knows the source
 # for the dotfiles.
 echo -e "\n$(cat ~/.bash_profile)" > ~/.bash_profile
-echo -e "export DOTFILES_SOURCE=\"$INSTALL_SCRIPT_DIR\";\n$(cat ~/.bash_profile)" > ~/.bash_profile
+echo -e "export DOTFILES_SOURCE=\"$DOTFILES_DIR\";\n$(cat ~/.bash_profile)" > ~/.bash_profile
 echo -e "# Export the path of the dotfiles to an env variable for easy access.\n$(cat ~/.bash_profile)" > ~/.bash_profile
 
 echo "Applying configuration changes...";
