@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# This git hook will insert an editable prefix to the commit message. The
+# prefix will be built using the two last parts of the full branch path.
+# For example, if you are going to commit while in a branch called
+# 'feature/hooks', then this script wil add 'feature(hooks):' before your
+# commit message. 
+
+# Gets the branch name.
+fullBranchPath=$(git symbolic-ref --short HEAD)
+
+# Gets the branch path as an array, split by the '/' character.
+branchPaths=(${fullBranchPath//// }) 
+
+firstLine=$(head -n1 $1)
+
+# Check that this is not an amend by checking that the first line is empty.
+if [ -z "$firstLine"  ]; then
+	# Check if the name of the branch is simple, like just 'master'.
+	if [ ${#branchPaths[@]} -eq 1 ]; then
+		# Insert the whole branch name if the name is simple.
+		sed -i "1s/^/${branchPaths}: \n/" $1
+	else
+		# Insert the parts of the branch name as the commit message.
+		sed -i "1s/^/${branchPaths[0]}(${branchPaths[1]}): \n/" $1
+	fi
+fi
