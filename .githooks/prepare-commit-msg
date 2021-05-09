@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# This git hook will insert an editable prefix to the commit message. The
+# prefix will be built using the two last parts of the full branch path.
+# For example, if you are going to commit while in a branch called
+# 'feature/hooks', then this script wil add 'feature(hooks):' before your
+# commit message. 
+
 # Gets the full path of the branch, something like refs/heads/myBranchName.
 fullBranchPath=$(git symbolic-ref -q HEAD)
 
