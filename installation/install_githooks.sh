@@ -19,6 +19,9 @@ installGitHooksTracking() {
 	# Change the local git configuration for this project so that the hooks
 	# defined in the .githooks folder are used.
 	git config core.hooksPath .githooks;
+
+	# Hooks have to be executable, or else git will ignore them.
+	makeHooksExecutable .githooks;
 }
 
 installLocalGitHooks() {
@@ -26,6 +29,14 @@ installLocalGitHooks() {
 
 	# Copy the .githooks scripts to the project.
 	cp -i $DOTFILES_DIR/.githooks/* .git/hooks/;
+
+	# Hooks have to be executable, or else git will ignore them.
+	makeHooksExecutable .git/hooks;
+}
+
+makeHooksExecutable() {
+	projectHooksPath=$1
+	chmod +x $projectHooksPath/*;
 }
 
 # Check if the user wants to track the hooks we are about to add. If the user
