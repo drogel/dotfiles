@@ -108,8 +108,13 @@ nnoremap <Leader>w $
 nnoremap <Leader>b ^
 
 " Adds lines above or below current cursor without moving it.
-nnoremap <silent> ]<Space> :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
-nnoremap <silent> [<Space> :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
+nnoremap <silent> ]<CR> :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
+nnoremap <silent> [<CR> :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
+
+" Moves to the next uppercase letter, this way it is easy to move through
+" camelCase words.
+nnoremap <Leader>u /[A-Z]<CR>
+nnoremap <Leader>U ?[A-Z]<CR>
 
 " ======= Swift-specific mappings =======
 "
