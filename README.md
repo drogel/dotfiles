@@ -21,7 +21,7 @@ To update the dotfiles, simply run:
 source $DOTFILES_SOURCE/installation/install.sh
 ```
 
-### What's the `.githooks` folder?
+### What's the .githooks folder?
 
 The `.githooks` folder contains custom client-side scripts that I use in my personal Git repositories. These are not part of the global configuration and they will not be installed with the installation script. They should be installed specifically in the Git repository that wants to use them.
 
@@ -31,11 +31,11 @@ To install the hooks, `cd` into your local Git repository of your project and ru
 source $DOTFILES_SOURCE/installation/install_githooks.sh
 ```
 
-### What's the `.private` file?
+### What's the .private file?
 
-If `~/.private` exists, it will be sourced along with the other files. You can use this to add custom commands without forking this repository, or to add commands you don’t want to commit to a public repository.
+If `$DOTFILES_SOURCE/.private` exists, it will be sourced along with the other files. You can use this to add custom commands without forking this repository, or to add commands you don’t want to commit to a public repository.
 
-For instance, I set my Git credentials in my `~/.private` file, like this:
+For instance, I set my Git credentials in my `$DOTFILES_SOURCE/.private` file, like this:
 
 ```bash
 # My Git credentials.
@@ -50,7 +50,7 @@ git config --global user.email "$GIT_AUTHOR_EMAIL"
 
 ## Feedback
 
-Suggestions, bug reports and improvements [are very welcome!](https://github.com/drogel/dotfiles/issues)!
+Suggestions, bug reports and improvements [are very welcome](https://github.com/drogel/dotfiles/issues)!
 
 ## Author
 
