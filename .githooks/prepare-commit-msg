@@ -19,9 +19,9 @@ if [ -z "$firstLine"  ]; then
 	# Check if the name of the branch is simple, like just 'master'.
 	if [ ${#branchPaths[@]} -eq 1 ]; then
 		# Insert the whole branch name if the name is simple.
-		sed -i "1s/^/${branchPaths}: \n/" $1
+		sed -i '' "1s/^/${branchPaths}: /" $1
 	else
 		# Insert the parts of the branch name as the commit message.
-		sed -i "1s/^/${branchPaths[0]}(${branchPaths[1]}): \n/" $1
+		sed -i '' "1s/^/${branchPaths[0]}(${branchPaths[1]}): /" $1
 	fi
 fi
