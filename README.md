@@ -9,7 +9,7 @@
 
 You can clone the repository wherever you want. For example, I put my dotfiles in `~/dotfiles/`. The installation script will pull in the latest version and copy the dotfiles to your home folder.
 
-To clone and install the dotfiles direclty, run:
+To clone and install the dotfiles directly, run:
 
 ```bash
 git clone https://github.com/drogel/dotfiles.git && source dotfiles/installation/install.sh
