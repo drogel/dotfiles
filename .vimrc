@@ -24,11 +24,6 @@ set smartcase
 " Use 4 spaces when expanding tabs
 set sts=4
 
-" On Mac OS X and Windows, the * and + registers both point to the system
-" clipboard so with this, the unnamed register is synchronized with the system
-" clipboard.
-set clipboard=unnamed
-
 " ======= General mappings =======
 "
 "
