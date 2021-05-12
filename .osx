@@ -5,3 +5,43 @@ hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x70
 
 # Puts mac to sleep.
 alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
+
+# Enable full keyboard access for all controls
+# (e.g. enable Tab in modal dialogs).
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+# Set a fast keyboard repeat rate.
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
+# Don’t display the annoying prompt when quitting iTerm2.
+defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+
+# Finder: show status bar.
+defaults write com.apple.Finder ShowStatusBar -bool true
+
+# Finder: show path bar.
+defaults write com.apple.Finder ShowPathbar -bool true
+
+# Finder: press command+control+shift+i to open a new iTerm2 window in the
+# current folder.
+defaults write com.apple.Finder NSUserKeyEquivalents -dict-add "New iTerm2 Window Here" "@^\$i"
+
+# Press command+control+shift+m to Zoom the currently focused window.
+defaults write -g NSUserKeyEquivalents -dict-add "Zoom" -string "@^\$m"
+
+# Press command+control+shift+h to move the currently focused window to the
+# Built-in Retina Display. Works on MacBooks, but it may not work on other
+# Apple computers.
+defaults write -g NSUserKeyEquivalents -dict-add "Move to Built-in Retina Display" -string "@^\$h"
+
+# Press command+control+shift+l to move the currently focused window to the
+# ZOWIE XL LCD, which currently my main monitor. You will need to change the
+# "ZOWIE XL LCD" reference to your own monitor identifer in order for this to
+# work.
+defaults write -g NSUserKeyEquivalents -dict-add "Move to ZOWIE XL LCD" -string "@^\$l"
+
+# Enable the option in System Preferences > Keyboard > Use all F1, F2 as
+# standard keys. This way, F1, F2, F3, etc. will work as standard keys on
+# external keyboards.
+defaults write -g com.apple.keyboard.fnState -bool true
