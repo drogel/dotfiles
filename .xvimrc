@@ -16,3 +16,9 @@ nmap <Leader>" :xcmenucmd Show Group Files<CR>
 nmap <Leader>s "*viw:xccmd findSelectedTextInWorkspace<CR>
 nmap <Leader>S "*viW:xccmd findSelectedTextInWorkspace<CR>
 
+" Jump to the next/previous Swift function declaration. I have to do this with
+" a regex because XVim does not support the built-in Vim mapping to jump to the
+" next function.
+nnoremap <Leader>n $/func.*\(.*\).*\{<CR>^
+nnoremap <Leader>N ?func.*\(.*\).*\{<CR>^
+

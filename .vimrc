@@ -111,6 +111,19 @@ nnoremap <silent> [<CR> :<C-u>call append(line(".")-1, repeat([""], v:count1))<C
 nnoremap <Leader>u /[A-Z]<CR>
 nnoremap <Leader>U ?[A-Z]<CR>
 
+" Changes to the next uppercase letter, this way it is easy to change through
+" camelCase words.
+nnoremap <Leader>cu c/\v[A-Z]<CR>
+nnoremap <Leader>cU c?\v[A-Z]<CR>
+
+" Deletes to the next uppercase letter, this way it is easy to delete through
+" camelCase words.
+nnoremap <Leader>du d/\v[A-Z]<CR>
+nnoremap <Leader>dU d?\v[A-Z]<CR>
+
+" Appends from the next found parenthesis, squirly brance or square brace.
+nnoremap <Leader>G /[\(\{\[]<CR>a
+
 " ======= Swift-specific mappings =======
 "
 "
