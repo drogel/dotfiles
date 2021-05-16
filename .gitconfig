@@ -20,6 +20,9 @@
 	# Search for commited code in the git history
 	se = !git rev-list --all | xargs git grep -F
 
+	# Copies the commit that HEAD points to.
+	cpcm = !git log | head -1 | awk '{print $2}' | pbcopy
+
 	# Diff with the previous commit
 	prev = diff HEAD~1
 

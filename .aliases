@@ -3,9 +3,6 @@
 # Removes branches that no longer exist in remote but are still present locally (gru is shorthand for git remove untracked).
 alias gru="git fetch --prune && git branch -r | awk '{print \$1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print \$1}' | xargs git branch -D"
 
-# Copies the commit that HEAD points to.
-alias cpcm="git log | head -1 | awk '{print \$2}' | pbcopy"
-
 # Shortcuts to commonly used folders.
 alias dl="cd ~/Downloads"
 alias dk="cd ~/Desktop"
