@@ -9,7 +9,7 @@ cd ~/.vim/pack/themes/opt
 
 # Clone the dracula theme project, under the name "dracula".
 echo "Installing the dracula vim colorscheme..."
-git clone https://github.com/dracula/vim.git dracula
+git clone https://github.com/dracula/vim.git dracula &> /dev/null
 
 # Add the package and enable the dracula colorscheme in .gvimrc.
 echo "\" Apply the dracula colorscheme." >> ~/.gvimrc
