@@ -108,8 +108,12 @@ PS1+="\[${white}\]@";
 PS1+="\[${hostStyle}\]\h"; # host
 PS1+="\[${white}\] in ";
 PS1+="\[${cyan}\]\w"; # working directory full path
-PS1+="\$(prompt_git \"\[${white}\] on \[${purple}\]\" \"\[${yellow}\]\")"; # Git repository details
-PS1+="\n";
+if [ "$(uname)" == "Darwin" ] || [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+	# Git repository details. We only add them on macOS or Linux machines
+	# because this line throws a lot of warnings on MinGW.
+	PS1+="\$(prompt_git \"\[${white}\] on \[${purple}\]\" \"\[${yellow}\]\")";
+fi
+PS1+=$"\n";
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
 export PS1;
 
