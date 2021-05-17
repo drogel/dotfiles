@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
-# Remap right option/alt to escape, right control to enter, and capslock to
+# Remap right option/alt to enter, right control to escape, and capslock to
 # backspace. I use the left option/alt and left control all the time, and this
 # remapping lets me hit the escape and enter keys with the palm of my right
 # hand.
 # For more info on keyboard remappings, check out
 # https://developer.apple.com/library/archive/technotes/tn2450/_index.html
 hidutil property --set '{"UserKeyMapping":[
-    {"HIDKeyboardModifierMappingSrc":0x7000000e6, "HIDKeyboardModifierMappingDst":0x700000029},
-    {"HIDKeyboardModifierMappingSrc":0x7000000e4, "HIDKeyboardModifierMappingDst":0x700000028},
+    {"HIDKeyboardModifierMappingSrc":0x7000000e4, "HIDKeyboardModifierMappingDst":0x700000029},
+    {"HIDKeyboardModifierMappingSrc":0x7000000e6, "HIDKeyboardModifierMappingDst":0x700000028},
     {"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x70000002A}
 ]}' > /dev/null
 
