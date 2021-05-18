@@ -35,6 +35,9 @@
 	# Commit everything
 	ca = commit -a
 
+	# Add everything on the current folder and commit
+	acm = ! git add . && git commit
+
 	# Commit amending and without editing the commit message
 	amend = commit --amend --no-edit
 	
