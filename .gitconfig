@@ -23,6 +23,12 @@
 	# Copies the commit that HEAD points to.
 	cpcm = !git log | head -1 | awk '{print $2}' | pbcopy
 
+	# Shows the name of the current branch
+	cb = branch --show-current
+
+	# Copies the name of the current branch
+	cpcb = ! git branch --show-current | pbcopy
+
 	# Diff with the previous commit
 	prev = diff HEAD~1
 
