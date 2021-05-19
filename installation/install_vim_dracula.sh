@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Get the path of this script.
-INSTALL_SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+# Get the path from which this script was called.
+INSTALL_SCRIPT_CALL_PATH=`pwd`
 
 # Create the vim themes folder and move inside it.
 mkdir -p ~/.vim/pack/themes/opt &> /dev/null
@@ -20,4 +20,4 @@ echo "colorscheme dracula" >> ~/.gvimrc
 echo "" >> ~/.gvimrc
 
 # Return to where we were
-cd $INSTALL_SCRIPT_DIR
+cd $INSTALL_SCRIPT_CALL_PATH
