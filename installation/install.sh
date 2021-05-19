@@ -40,6 +40,20 @@ done;
 # Install the dracula vim theme.
 source installation/install_vim_dracula.sh
 
+# Install the Swift syntax highlight for Vim.
+# If we don't find the files for the Swift syntax highlight for Vim, we ask the
+# user for permission, since this operation takes a few minutes.
+if [ ! -d "~/.vim/pack/bundle/start/swift" ]; then
+	echo "It looks like you don't have the Swift syntax highlight for Vim configured."
+	read -p "Do you want me to install it? It'll take a few minutes. (y/n) " -n 1 shouldInstallSwiftSyntax;
+	echo "";
+	if [[ $shouldInstallSwiftSyntax =~ ^[Yy]$ ]]; then
+		source installation/install_swift_syntax.sh;
+	else
+		echo "Okay, continuing without installing the Swift syntax for Vim...";
+	fi;
+fi;
+
 # Append the contents of the .vimrc file to the .xvimrc and .ideavimrc file so
 # that the vim configuration is shared across vim, xvim and IntelliJ IDEA. 
 # Do the same for the other vim-related configuration files, or else they won't
