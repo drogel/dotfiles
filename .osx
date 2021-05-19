@@ -34,21 +34,21 @@ defaults write com.apple.Finder ShowPathbar -bool true
 
 # Finder: press command+control+shift+i to open a new iTerm2 window in the
 # current folder.
-defaults write com.apple.Finder NSUserKeyEquivalents -dict-add "New iTerm2 Window Here" "@^\$i"
+defaults write com.apple.Finder NSUserKeyEquivalents -dict-add "New iTerm2 Window Here" "@~^\$i"
 
 # Press command+control+shift+m to Zoom the currently focused window.
-defaults write -g NSUserKeyEquivalents -dict-add "Zoom" -string "@^\$m"
+defaults write -g NSUserKeyEquivalents -dict-add "Zoom" -string "@~^\$m"
 
 # Press command+control+shift+h to move the currently focused window to the
 # Built-in Retina Display. Works on MacBooks, but it may not work on other
 # Apple computers.
-defaults write -g NSUserKeyEquivalents -dict-add "Move to Built-in Retina Display" -string "@^\$h"
+defaults write -g NSUserKeyEquivalents -dict-add "Move to Built-in Retina Display" -string "@~^\$h"
 
 # Press command+control+shift+l to move the currently focused window to the
 # ZOWIE XL LCD, which currently my main monitor. You will need to change the
 # "ZOWIE XL LCD" reference to your own monitor identifer in order for this to
 # work.
-defaults write -g NSUserKeyEquivalents -dict-add "Move to ZOWIE XL LCD" -string "@^\$l"
+defaults write -g NSUserKeyEquivalents -dict-add "Move to ZOWIE XL LCD" -string "@~^\$l"
 
 # Enable the option in System Preferences > Keyboard > Use all F1, F2 as
 # standard keys. This way, F1, F2, F3, etc. will work as standard keys on
