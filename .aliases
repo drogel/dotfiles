@@ -34,3 +34,6 @@ alias .5='cd ../../../../..'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
+
+# Opens the file that was last modified in the folder (only works on macOS).
+alias openlast='ls -t | head -1 | tr \\n \\0 |  xargs -0 open'
