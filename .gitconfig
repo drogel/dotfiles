@@ -11,6 +11,9 @@
 	# Displays the status in a short format
 	st = status -sb
 
+	# Shorthand for worktree
+	wt = worktree
+
 	# Displays the log only of the latest commit
 	last = log -1 HEAD --stat
 
