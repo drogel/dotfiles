@@ -43,7 +43,7 @@ source installation/install_vim_dracula.sh
 # Install the Swift syntax highlight for Vim.
 # If we don't find the files for the Swift syntax highlight for Vim, we ask the
 # user for permission, since this operation takes a few minutes.
-if [ ! -d "~/.vim/pack/bundle/start/swift" ]; then
+if [ ! -d ~/.vim/pack/bundle/start/swift/ ]; then
 	echo "It looks like you don't have the Swift syntax highlight for Vim configured."
 	read -p "Do you want me to install it? It'll take a few minutes. (y/n) " -n 1 shouldInstallSwiftSyntax;
 	echo "";
