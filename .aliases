@@ -7,6 +7,7 @@ alias gru="git fetch --prune && git branch -r | awk '{print \$1}' | egrep -v -f 
 alias dl="cd ~/Downloads"
 alias dk="cd ~/Desktop"
 alias rks="cd ~/Movies/RocketSim"
+alias dotfiles="cd $DOTFILES_SOURCE"
 
 # Use a long listing format.
 alias ll='ls -la'
