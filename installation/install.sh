@@ -9,7 +9,7 @@ if [[ ! $shouldInit =~ ^[Yy]$ ]]; then
 fi;
 
 # Get the path from which this script was called.
-INSTALL_SCRIPT_CALL_PATH=`pwd`
+callPath=`pwd`
 
 # Get the path of the parent of this script. This is where the dotfiles are.
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && cd ../ && pwd )"
@@ -61,15 +61,20 @@ fi;
 appendContentsIfAvailable() {
 	FROM_FILE=$1
 	TO_FILE=$2
-	if [ -r ~/$FROM_FILE ] && [ -f ~/$FROM_FILE ]; then
-		echo "Completing $TO_FILE configuration...";
-		cat ~/$FROM_FILE >> ~/$TO_FILE;
+	if [ -r $FROM_FILE ] && [ -f $FROM_FILE ]; then
+		cat $FROM_FILE >> $TO_FILE;
 	fi
 }
 
-appendContentsIfAvailable .gvimrc .vimrc
-appendContentsIfAvailable .vimrc .xvimrc
-appendContentsIfAvailable .vimrc .ideavimrc 
+appendContentsIfAvailable ~/.gvimrc ~/.vimrc
+appendContentsIfAvailable ~/.vimrc ~/.xvimrc
+appendContentsIfAvailable ~/.vimrc ~/.ideavimrc 
+
+# Append the contents of the .pluginvimrc file to the .vimrc files, since I
+# like to keep the vim plugins configuration in a separate file.
+echo "Installing vim plugins..."
+appendContentsIfAvailable .pluginvimrc ~/.vimrc
+vim +PlugInstall +qall
 
 # Prepend the path of this script to the .bash_profile so it knows the source
 # for the dotfiles.
@@ -81,6 +86,6 @@ echo "Applying configuration changes...";
 source ~/.bash_profile;
 
 # Return to where we were
-cd $INSTALL_SCRIPT_CALL_PATH
+cd $callPath
 
 echo "Done! I hope you enjoy this configuration, have a great day!";

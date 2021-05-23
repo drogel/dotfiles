@@ -1,0 +1,15 @@
+" ======= Vim plugins settigns =======
+"
+"
+
+call plug#begin('~/.vim/plugged')
+
+" Nodejs extension host for vim & neovim, load extensions like VSCode and host
+" language servers.
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
+
+" Sets the indentation value to 4 spaces when inserting after a brace in Swift.
+let g:swiftIndentAfterBrace = 4
+
