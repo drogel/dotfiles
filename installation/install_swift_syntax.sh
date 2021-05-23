@@ -50,5 +50,17 @@ mv utils/vim/* .
 # Clear the utils folder we cloned, which is now empty.
 rm -rf utils/
 
+# Clone an indentantion script for Swift that is more configurable and robust
+# than the one found in the swift.vim plugin. Put it in the indent/ folder of
+# the swift syntax vim directory. For more info see:
+# - https://gist.github.com/morefun2compute/bdc6ee6d8b9add60a03b318bd91ba570
+# - https://forums.swift.org/t/swift-indentation-for-vim/5011
+echo "Installing the Swift for vim indentation logic..."
+indentScriptGistId=bdc6ee6d8b9add60a03b318bd91ba570
+git clone https://gist.github.com/$indentScriptGistId.git &> /dev/null
+mv $indentScriptGistId indent
+
 # Return to where we were
 cd $installScriptCallPath
+echo "Swift syntax highlighting and indentation logic installed at $localSwiftSyntaxVimDirectory."
+echo "Review the /indent/swift.vim and the swift-indent.py scripts for more information on indenting Swift code on vim."

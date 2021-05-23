@@ -25,6 +25,13 @@ if ! which node > /dev/null; then
 	curl -sL install-node.now.sh/lts | bash
 fi
 
+# Install jq if it's not installed already, since it is needed to edit the CoC
+# JSON configuration file.
+if ! which jq > /dev/null; then
+	echo "jq utility not found. I need it to edit the CoC configuration file. Installing using homebrew..."
+	brew install jq
+fi
+
 appendLineToFileIfNotPresent() {
 	lineToInsert=$1
 	file=$2
