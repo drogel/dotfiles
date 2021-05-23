@@ -5,11 +5,39 @@
 call plug#begin('~/.vim/plugged')
 
 " Nodejs extension host for vim & neovim, load extensions like VSCode and host
-" language servers.
+" language servers. Used for features like code completion and jump to
+" definition in code.
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Fzf.vim is a vim plugin based on the command line fuzzy finder fzf. Used to
+" navigate quickly between files in a project, and finding stuff in code.
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 call plug#end()
 
 " Sets the indentation value to 4 spaces when inserting after a brace in Swift.
 let g:swiftIndentAfterBrace = 4
 
+" Configures Vim to use ripgrep instead of terminal grep when running the
+" :grep command. Of course, ripgrep is required for this to work.
+set grepprg=rg\ --vimgrep\ --smart-case\ --follow
+
+" Use `[g` and `]g` to navigate through CoC diagnostics.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Different go-to navigations using CoC.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gc <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Find files with fzf.vim.
+nnoremap <silent> <leader>f :Files<CR>
+
+" Find ocurrences in code with fzf.vim and ripgrep.
+nnoremap <silent> <leader>F :Rg<CR>
