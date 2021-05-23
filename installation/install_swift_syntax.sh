@@ -1,12 +1,19 @@
 #!/usr/bin/env bash
 
+# Return if the Swift package is already found in the .vim folder.
+localSwiftSyntaxVimDirectory=~/.vim/pack/bundle/start/swift
+if [ -d "$localSwiftSyntaxVimDirectory" ]; then
+	echo "Swift syntax support for vim seems to be already in place."
+	return
+fi
+
 # Get the path from which this script was called.
-INSTALL_SCRIPT_CALL_PATH=`pwd`
+installScriptCallPath=`pwd`
 
 # Create the vim package folder where we will store the swift syntax vim
 # folder.
-mkdir -p ~/.vim/pack/bundle/start/swift &> /dev/null
-cd ~/.vim/pack/bundle/start/swift
+mkdir -p $localSwiftSyntaxVimDirectory &> /dev/null
+cd $localSwiftSyntaxVimDirectory
 
 # Set the official Swift repo URL and the folder we are interested in.
 swiftSyntaxRepoUrl="https://github.com/apple/swift.git"
@@ -33,7 +40,7 @@ gitShallowSparseClone() (
   git pull --depth=1 origin main
 )
 
-echo "Cloning the vim utils from the official Swift repository..."
+echo "Cloning the vim utils from the official Swift repository into $localSwiftSyntaxVimDirectory..."
 echo "Hold on, this will take a few minutes."
 gitShallowSparseClone $swiftSyntaxRepoUrl "." $swiftSyntaxVimDirectory &> /dev/null
 
@@ -44,4 +51,4 @@ mv utils/vim/* .
 rm -rf utils/
 
 # Return to where we were
-cd $INSTALL_SCRIPT_CALL_PATH
+cd $installScriptCallPath
