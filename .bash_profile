@@ -14,7 +14,7 @@ sourceFiles() {
 	unset file;
 }
 
-generalFiles=("bash_config" "bash_prompt" "aliases" "private")
+generalFiles=("bash_config" "bash_prompt" "bashrc" "aliases" "private")
 
 sourceFiles "${generalFiles[@]}"
 
