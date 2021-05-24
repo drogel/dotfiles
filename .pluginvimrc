@@ -16,12 +16,16 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 call plug#end()
 
+" ======= Swift indent script settings =======
+"
+"
+
 " Sets the indentation value to 4 spaces when inserting after a brace in Swift.
 let g:swiftIndentAfterBrace = 4
 
-" Configures Vim to use ripgrep instead of terminal grep when running the
-" :grep command. Of course, ripgrep is required for this to work.
-set grepprg=rg\ --vimgrep\ --smart-case\ --follow
+" ======= CoC mappings =======
+"
+"
 
 " Use `[g` and `]g` to navigate through CoC diagnostics.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -33,11 +37,45 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gc <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" ======= FzF mappings =======
+"
+"
+
+" Configures Vim to use ripgrep instead of terminal grep when running the
+" :grep command. Of course, ripgrep is required for this to work.
+set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 
 " Find files with fzf.vim.
 nnoremap <silent> <leader>f :Files<CR>
 
 " Find ocurrences in code with fzf.vim and ripgrep.
 nnoremap <silent> <leader>F :Rg<CR>
+
+" Find within all the buffers.
+nnoremap <silent> <Leader>b :Buffers<CR>
+
+" Find lines in the current buffer.
+nnoremap <silent> <Leader>/ :BLines<CR>
+
+" Find within the marks of the current session.
+nnoremap <silent> <Leader>' :Marks<CR>
+
+" Find within the git commits of the current git project.
+nnoremap <silent> <Leader>cm :Commits<CR>
+
+" Find in the shell history.
+nnoremap <silent> <Leader>hh :History<CR>
+
+" Find in the vim command mode history.
+nnoremap <silent> <Leader>h: :History:<CR>
+
+" Find in the vim search history.
+nnoremap <silent> <Leader>h/ :History/<CR>
