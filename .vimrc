@@ -28,6 +28,15 @@ set sts=4
 " delays and poor user experience.
 set updatetime=350
 
+" Highlights matching phrases when searching.
+set hlsearch
+
+" Sets incremental search: higlights the pattern being searched while typing.
+set incsearch
+
+" Avoid vim warnings when switching or quitting unsaved buffers.
+set hidden
+
 " ======= General mappings =======
 "
 "
@@ -38,9 +47,6 @@ let mapleader=" "
 " Tapping j twice exits insert mode.
 imap jj <Esc>
 
-" Press enter in normal mode to insert a new line and return to normal mode.
-nmap <CR> _i<Enter><Esc>
-
 " Append a new char and inmediately return to normal mode.
 nnoremap \ a_<Esc>r
 
@@ -49,6 +55,9 @@ nnoremap <bar> i_<Esc>r
 
 " Yanks the rest of the line, starting from the cursor.
 nmap Y y$
+
+" Tapping enter on normal mode turns off all higlights.
+nnoremap <CR> :noh<return><esc>
 
 " Yank to the system clipboard.
 nnoremap <Leader>y "*y
@@ -91,6 +100,10 @@ nnoremap d[n d?\v[<>=]{7}<CR>
 " Change to git conflict markers.
 nnoremap c]n c/\v[<>=]{7}<CR>
 nnoremap c[n c?\v[<>=]{7}<CR>
+
+" Jump to next or previous buffer.
+nnoremap ]b :bnext<CR>
+nnoremap [b :bprevious<CR>
 
 " Move visually selected text one line up or down.
 vnoremap J :m '>+1<CR>gv=gv
