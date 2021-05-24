@@ -29,7 +29,7 @@ set sts=4
 "
 
 " Sets Space to Leader.
-map <Space> <Leader>
+let mapleader=" "
 
 " Tapping j twice exits insert mode.
 imap jj <Esc>
