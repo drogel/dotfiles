@@ -74,7 +74,7 @@ appendContentsIfAvailable ~/.vimrc ~/.ideavimrc
 # like to keep the vim plugins configuration in a separate file.
 echo "Installing vim plugins..."
 appendContentsIfAvailable .pluginvimrc ~/.vimrc
-vim +PlugInstall +qall
+vim +'PlugInstall --sync' +qall &> /dev/null
 
 # Prepend the path of this script to the .bash_profile so it knows the source
 # for the dotfiles.
