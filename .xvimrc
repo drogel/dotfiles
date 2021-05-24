@@ -2,6 +2,9 @@
 "
 "
 
+" Sets Space to Leader.
+map <Space> <Leader>
+
 " Open quickly menu.
 nmap <Leader>f :xcmenucmd Open Quickly...<CR>
 
