@@ -60,10 +60,12 @@ appendLineToFileIfNotPresent "call plug#end()" $vimrc
 insertBeforeLineIfNotPresent "Plug 'neoclide/coc.nvim', {'branch': 'release'}" "call plug#end()" $vimrc
 
 # Install the plugin we just appended to .vimrc.
-vim +'PlugInstall --sync' +qall
+echo "Installing the plug.vim plugin manager..."
+vim +'PlugInstall --sync' +qall &> /dev/null
 
 # Install coc-sourcekit.
-vim +CocInstall coc-sourcekit +qall
+echo "Installing coc-sourcekit..."
+vim -c 'CocInstall -sync coc-sourcekit|qall!' &> /dev/null
 
 # Define the path where the CoC settings file is.
 cocSettingsFile=~/.vim/coc-settings.json
