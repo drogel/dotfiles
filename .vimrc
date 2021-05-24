@@ -24,6 +24,10 @@ set smartcase
 " Use 4 spaces when expanding tabs
 set sts=4
 
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=350
+
 " ======= General mappings =======
 "
 "
