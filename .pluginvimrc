@@ -60,7 +60,7 @@ nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>F :Rg<CR>
 
 " Find within all the buffers.
-nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>B :Buffers<CR>
 
 " Find lines in the current buffer.
 nnoremap <silent> <Leader>/ :BLines<CR>
