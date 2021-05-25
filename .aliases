@@ -38,3 +38,6 @@ alias fgrep='fgrep --color=auto'
 
 # Opens the file that was last modified in the folder (only works on macOS).
 alias openlast='ls -t | head -1 | tr \\n \\0 |  xargs -0 open'
+
+# Opens the file that was last modified in the folder with vim.
+alias vimlast='ls -t | head -1 | tr \\n \\0 |  xargs -0 vim'
