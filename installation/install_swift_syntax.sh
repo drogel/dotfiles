@@ -63,4 +63,4 @@ mv $indentScriptGistId indent
 # Return to where we were
 cd $installScriptCallPath
 echo "Swift syntax highlighting and indentation logic installed at $localSwiftSyntaxVimDirectory."
-echo "Review the /indent/swift.vim and the swift-indent.py scripts for more information on indenting Swift code on vim."
+echo "Review the /indent/swift.vim script for more information on indenting Swift code on vim."
