@@ -22,7 +22,7 @@ if ! fgrep -q "${BREW_PREFIX}/bin/bash" /etc/shells; then
 fi;
 
 # Install more recent versions of some macOS tools.
-brew install vim --with-override-system-vi
+brew install vim
 brew install grep
 brew install openssh
 brew install screen
@@ -51,6 +51,9 @@ if type rg &> /dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files'
   export FZF_DEFAULT_OPTS='-m'
 fi
+
+# Install swift-format, the official Apple CLI tool for formatting swift code.
+brew install swift-format
 
 # Remove outdated versions from the cellar.
 brew cleanup
