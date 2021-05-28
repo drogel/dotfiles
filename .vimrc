@@ -31,7 +31,7 @@ set updatetime=350
 " Highlights matching phrases when searching.
 set hlsearch
 
-" Sets incremental search: higlights the pattern being searched while typing.
+" Sets incremental search: highlights the pattern being searched while typing.
 set incsearch
 
 " Avoid vim warnings when switching or quitting unsaved buffers.
@@ -56,22 +56,16 @@ nnoremap <leader>W :w<CR>
 " Delete/close the current buffer.
 nnoremap <leader>x :bd<CR>
 
-" Turns on line break.
-nnoremap <leader>LB :set wrap <bar> set linebreak<CR>
-
-" Turns off line break.
-nnoremap <leader>NLB :set nowrap<CR>
-
-" Append a new char and inmediately return to normal mode.
+" Append a new char and immediately return to normal mode.
 nnoremap \ a_<Esc>r
 
-" Insert a new char and inmediately return to normal mode.
+" Insert a new char and immediately return to normal mode.
 nnoremap <bar> i_<Esc>r
 
 " Yanks the rest of the line, starting from the cursor.
 nmap Y y$
 
-" Tapping enter on normal mode turns off all higlights.
+" Tapping enter on normal mode turns off all highlights.
 nnoremap <CR> :noh<return><esc>
 
 " Yank to the system clipboard.
@@ -86,7 +80,7 @@ nnoremap <Leader>P "*P
 " the black hole register.
 vnoremap <Leader>p "_dP
 
-" Insert from the next parenthesis, bracket or squirly brace.
+" Insert from the next parenthesis, bracket or brace.
 nnoremap <Leader>g %i
 
 " Go to the next comma and append a new line after it.
@@ -100,29 +94,9 @@ nnoremap <Leader>) f)ca)
 nnoremap <Leader>[ f[ci[
 nnoremap <Leader>] f]ca]
 
-" Find next squirly brace and change inside/around squirly braces.
+" Find next brace and change inside/around braces.
 nnoremap <Leader>{ f{ci{
 nnoremap <Leader>} f}ca}
-
-" Search git conflict markers.
-nnoremap ]n /\v[<>=]{7}<CR>
-nnoremap [n ?\v[<>=]{7}<CR>
-
-" Delete to git conflict markers.
-nnoremap d]n d/\v[<>=]{7}<CR>
-nnoremap d[n d?\v[<>=]{7}<CR>
-
-" Change to git conflict markers.
-nnoremap c]n c/\v[<>=]{7}<CR>
-nnoremap c[n c?\v[<>=]{7}<CR>
-
-" Jump to next or previous buffer.
-nnoremap ]b :bnext<CR>
-nnoremap [b :bprevious<CR>
-
-" Move visually selected text one line up or down.
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
 
 " Jump to the next found { character, move inside the block it defines, unfold
 " the block and center the viewport.
@@ -133,10 +107,6 @@ nnoremap <Leader>w $
 
 " It is easier for me to press <Space>b to go to the beginning of the line.
 nnoremap <Leader>b ^
-
-" Adds lines above or below current cursor without moving it.
-nnoremap <silent> ]<CR> :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
-nnoremap <silent> [<CR> :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
 " Moves to the next uppercase letter, this way it is easy to move through
 " camelCase words.
@@ -153,7 +123,7 @@ nnoremap <Leader>cU c?\v[A-Z]<CR>
 nnoremap <Leader>du d/\v[A-Z]<CR>
 nnoremap <Leader>dU d?\v[A-Z]<CR>
 
-" Appends from the next found parenthesis, squirly brance or square brace.
+" Appends from the next found parenthesis, brace or square brace.
 nnoremap <Leader>G /[\(\{\[]<CR>a
 
 " ======= Swift-specific mappings =======

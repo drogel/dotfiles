@@ -16,7 +16,7 @@ hidutil property --set '{"UserKeyMapping":[
 alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
 
 # Enable full keyboard access for all controls
-# (e.g. enable Tab in modal dialogs).
+# (e.g. enable Tab in modal dialog).
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 # Set a fast keyboard repeat rate.
@@ -46,7 +46,7 @@ defaults write -g NSUserKeyEquivalents -dict-add "Move to Built-in Retina Displa
 
 # Press command+control+shift+l to move the currently focused window to the
 # ZOWIE XL LCD, which currently my main monitor. You will need to change the
-# "ZOWIE XL LCD" reference to your own monitor identifer in order for this to
+# "ZOWIE XL LCD" reference to your own monitor identifier in order for this to
 # work.
 defaults write -g NSUserKeyEquivalents -dict-add "Move to ZOWIE XL LCD" -string "@~^\$l"
 

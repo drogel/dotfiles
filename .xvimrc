@@ -8,7 +8,7 @@ map <Space> <Leader>
 " Open quickly menu.
 nmap <Leader>f :xcmenucmd Open Quickly...<CR>
 
-" Show a quick-selection list of the properites, methods and comments in
+" Show a quick-selection list of the properties, methods and comments in
 " current file.
 nmap <Leader>' :xcmenucmd Show Document Items<CR>
 
