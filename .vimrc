@@ -47,6 +47,21 @@ let mapleader=" "
 " Tapping j twice exits insert mode.
 imap jj <Esc>
 
+" Enter terminal mode.
+nnoremap <leader>t :term<CR>
+
+" Write on the current buffer.
+nnoremap <leader>W :w<CR>
+
+" Delete/close the current buffer.
+nnoremap <leader>x :bd<CR>
+
+" Turns on line break.
+nnoremap <leader>LB :set wrap <bar> set linebreak<CR>
+
+" Turns off line break.
+nnoremap <leader>NLB :set nowrap<CR>
+
 " Append a new char and inmediately return to normal mode.
 nnoremap \ a_<Esc>r
 
