@@ -146,6 +146,15 @@ let g:airline#extensions#tabline#enabled = 1
 "
 "
 
+" Turns 'hlsearch' off automatically after searching related motions.
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+
 " Disable easymotion default mappings.
 let g:EasyMotion_do_mapping = 0
 
@@ -153,10 +162,10 @@ let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
 
 " Fuzzy searches forwards, correcting spelling.
-nmap <leader><leader>/ <Plug>(incsearch-fuzzyspell-/)
+nmap / <Plug>(incsearch-fuzzyspell-/)
 
 " Fuzzy searches backwards, correcting spelling.
-nmap <leader><leader>? <Plug>(incsearch-fuzzyspell-?)
+nmap ? <Plug>(incsearch-fuzzyspell-?)
 
 " Combines easymotion and incsearch-fuzzy, providing a fuzzy search and then a
 " set of quick shortcuts to jump to a result.
