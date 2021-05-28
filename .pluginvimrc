@@ -27,6 +27,12 @@ Plug 'vim-airline/vim-airline'
 " Provides lots of handy pairs of bracket-based mappings.
 Plug 'tpope/vim-unimpaired'
 
+" Provides fuzzy search within buffers with quick jump shortcuts.
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-easymotion.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
+Plug 'easymotion/vim-easymotion'
+
 call plug#end()
 
 " ======= Swift indent script settings =======
@@ -53,7 +59,7 @@ nmap <silent> gr <Plug>(coc-references)
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+			\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -135,3 +141,33 @@ nnoremap <silent> <Leader>h/ :History/<CR>
 
 " Automatically displays all buffers when there's only one tab open.
 let g:airline#extensions#tabline#enabled = 1
+
+" ======= Incsearch-easymotion mappings =======
+"
+"
+
+" Disable easymotion default mappings.
+let g:EasyMotion_do_mapping = 0
+
+" Makes easymotion search case insensitive.
+let g:EasyMotion_smartcase = 1
+
+" Fuzzy searches forwards, correcting spelling.
+nmap <leader><leader>/ <Plug>(incsearch-fuzzyspell-/)
+
+" Fuzzy searches backwards, correcting spelling.
+nmap <leader><leader>? <Plug>(incsearch-fuzzyspell-?)
+
+" Combines easymotion and incsearch-fuzzy, providing a fuzzy search and then a
+" set of quick shortcuts to jump to a result.
+noremap <silent><expr> <leader><leader> incsearch#go(<SID>config_easyfuzzymotion())
+
+function! s:config_easyfuzzymotion(...) abort
+	return extend(copy({
+				\   'converters': [incsearch#config#fuzzy#converter()],
+				\   'modules': [incsearch#config#easymotion#module()],
+				\   'keymap': {"\<CR>": '<Over>(easymotion)'},
+				\   'is_expr': 0,
+				\   'is_stay': 1
+				\ }), get(a:, 1, {}))
+endfunction
