@@ -19,7 +19,7 @@ cd $localSwiftSyntaxVimDirectory
 swiftSyntaxRepoUrl="https://github.com/apple/swift.git"
 swiftSyntaxVimDirectory="/utils/vim"
 
-# Clone the repo and do a sparse checkout only on the folder we are insterested
+# Clone the repo and do a sparse checkout only on the folder we are interested
 # in.
 gitShallowSparseClone() (
   remoteUrl="$1" localDirectory="$2" && shift 2
@@ -50,7 +50,7 @@ mv utils/vim/* .
 # Clear the utils folder we cloned, which is now empty.
 rm -rf utils/
 
-# Clone an indentantion script for Swift that is more configurable and robust
+# Clone an indentation script for Swift that is more configurable and robust
 # than the one found in the swift.vim plugin. Put it in the indent/ folder of
 # the swift syntax vim directory. For more info see:
 # - https://gist.github.com/morefun2compute/bdc6ee6d8b9add60a03b318bd91ba570

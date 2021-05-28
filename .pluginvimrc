@@ -24,6 +24,9 @@ Plug 'tpope/vim-fugitive'
 " Status bar for vim.
 Plug 'vim-airline/vim-airline'
 
+" Provides lots of handy pairs of bracket-based mappings.
+Plug 'tpope/vim-unimpaired'
+
 call plug#end()
 
 " ======= Swift indent script settings =======
@@ -59,7 +62,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 "
 "
 
-" Declares the formatters that the vim-autoformat plugin shuold use for
+" Declares the formatters that the vim-autoformat plugin should use for
 " formatting Swift files, and tells the plugin how to use de binaries to
 " format Swift code.
 let g:formatters_swift = ['apple_swiftformat', 'swiftformat']
@@ -102,7 +105,7 @@ set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 " Find files with fzf.vim.
 nnoremap <silent> <leader>f :Files<CR>
 
-" Find ocurrences in code with fzf.vim and ripgrep.
+" Find occurrences in code with fzf.vim and ripgrep.
 nnoremap <silent> <leader>F :Rg<CR>
 
 " Find within all the buffers.
