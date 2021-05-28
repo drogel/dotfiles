@@ -18,6 +18,9 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " code formatters.
 Plug 'Chiel92/vim-autoformat'
 
+" Vim-fugitive is a git wrapper for vim.
+Plug 'tpope/vim-fugitive'
+
 call plug#end()
 
 " ======= Swift indent script settings =======

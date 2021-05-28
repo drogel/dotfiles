@@ -86,3 +86,8 @@
 	whoami = config user.email
 [http]
 	sslVerify = false
+[core]
+	# This is a user-level .gitignore. Git will ignore whatever I put in
+	# this ~/.gitignore file by default for every Git project on the
+	# machine.
+	excludesfile = ~/.gitignore
