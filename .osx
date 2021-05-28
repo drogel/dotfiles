@@ -7,10 +7,10 @@
 # For more info on keyboard remappings, check out
 # https://developer.apple.com/library/archive/technotes/tn2450/_index.html
 hidutil property --set '{"UserKeyMapping":[
-    {"HIDKeyboardModifierMappingSrc":0x7000000e4, "HIDKeyboardModifierMappingDst":0x700000029},
-    {"HIDKeyboardModifierMappingSrc":0x7000000e6, "HIDKeyboardModifierMappingDst":0x700000028},
-    {"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x70000002A}
-]}' > /dev/null
+{"HIDKeyboardModifierMappingSrc":0x7000000e4, "HIDKeyboardModifierMappingDst":0x700000029},
+	{"HIDKeyboardModifierMappingSrc":0x7000000e6, "HIDKeyboardModifierMappingDst":0x700000028},
+		{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x70000002A}
+		]}' > /dev/null
 
 # Puts mac to sleep.
 alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
@@ -54,3 +54,6 @@ defaults write -g NSUserKeyEquivalents -dict-add "Move to ZOWIE XL LCD" -string 
 # standard keys. This way, F1, F2, F3, etc. will work as standard keys on
 # external keyboards.
 defaults write -g com.apple.keyboard.fnState -bool true
+
+# Speeds up window transitioning animations.
+defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool NO
