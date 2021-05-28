@@ -21,6 +21,9 @@ Plug 'Chiel92/vim-autoformat'
 " Vim-fugitive is a git wrapper for vim.
 Plug 'tpope/vim-fugitive'
 
+" Status bar for vim.
+Plug 'vim-airline/vim-airline'
+
 call plug#end()
 
 " ======= Swift indent script settings =======
