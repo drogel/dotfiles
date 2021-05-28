@@ -29,7 +29,7 @@ fi;
 
 # First, copy the config files to the ~/ folder and run dos2unix on them to
 # clear non-unix artifacts that they might have.
-for file in $DOTFILES_DIR/.{gitconfig,vimrc,xvimrc,gvimrc,ideavimrc,vim,inputrc,bash_profile}; do
+for file in $DOTFILES_DIR/.{gitconfig,gitignore,vimrc,xvimrc,gvimrc,ideavimrc,vim,inputrc,bash_profile}; do
 	if [ -r "$file" ] && [ -f "$file" ]; then
 			echo "Copying $file into the home directory...";
 			dos2unix "$file" &> /dev/null;
