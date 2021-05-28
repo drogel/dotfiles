@@ -66,6 +66,28 @@ let g:formatdef_swiftformat = '"cat - | swiftformat --quiet stdin"'
 " Autoformats the current buffer.
 nnoremap <silent> <leader>l :Autoformat<CR>
 
+" ======= Fugitive mappings =======
+"
+"
+
+" Shows fugitive git status menu.
+nnoremap <silent> <leader>gs :G<CR>
+
+" Shows current git diff.
+nnoremap <silent> <leader>gd :Git diff<CR>
+
+" Shows diff between the current state and the last commit.
+nnoremap <silent> <leader>gp :Git diff HEAD~1<CR>
+
+" Shows git log.
+nnoremap <silent> <leader>gl :Git log<CR>
+
+" Pick the left side patch in a merge conflict.
+nnoremap <silent> <leader>gf :diffget //2<CR>
+
+" Pick the right side patch in a merge conflict.
+nnoremap <silent> <leader>gj :diffget //3<CR>
+
 " ======= FzF mappings =======
 "
 "
