@@ -103,6 +103,10 @@ nnoremap <silent> <leader>gj :diffget //3<CR>
 "
 "
 
+" Makes fzf show its preview window on the upper side of the window, occupying
+" the 80% of the window. Pressing <C-/> will toggle the preview window.
+let g:fzf_preview_window = ['up:80%', 'ctrl-/']
+
 " Configures Vim to use ripgrep instead of terminal grep when running the
 " :grep command. Of course, ripgrep is required for this to work.
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
@@ -138,19 +142,15 @@ nnoremap <silent> <Leader>h/ :History/<CR>
 " find occurrences of the word under the cursor in code.
 command! -bang -nargs=* FindWordUnderCursor
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.shellescape(expand('<cword>')), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(expand('<cword>')), 1, fzf#vim#with_preview('up:80%')
+  \   )
 
 " Create a command called FindWORDUnderCursor that uses fzf.vim and ripgrep to
 " find occurrences of the WORD under the cursor in code.
 command! -bang -nargs=* FindWORDUnderCursor
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.shellescape(expand('<cWORD>')), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(expand('<cWORD>')), 1, fzf#vim#with_preview('up:80%')
+  \   )
 
 " Find occurrences of the word under the cursor in code with ripgrep.
 nnoremap <silent> <leader>s :FindWordUnderCursor<CR>
