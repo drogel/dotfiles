@@ -133,6 +133,30 @@ nnoremap <silent> <Leader>h: :History:<CR>
 " Find in the vim search history.
 nnoremap <silent> <Leader>h/ :History/<CR>
 
+" Create a command called FindWordUnderCursor that uses fzf.vim and ripgrep to
+" find occurrences of the word under the cursor in code.
+command! -bang -nargs=* FindWordUnderCursor
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(expand('<cword>')), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+" Create a command called FindWORDUnderCursor that uses fzf.vim and ripgrep to
+" find occurrences of the WORD under the cursor in code.
+command! -bang -nargs=* FindWORDUnderCursor
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(expand('<cWORD>')), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+" Find occurrences of the word under the cursor in code with ripgrep.
+nnoremap <silent> <leader>s :FindWordUnderCursor<CR>
+
+" Find occurrences of the WORD under the cursor in code with ripgrep.
+nnoremap <silent> <leader>S :FindWORDUnderCursor<CR>
+
 " ======= Airline configuration =======
 "
 "
