@@ -31,6 +31,10 @@ Plug 'tpope/vim-unimpaired'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 
+" Modifies " and @ in normal mode, and <C-r> in insert mode, to show a quick
+" preview of the registers.
+Plug 'junegunn/vim-peekaboo'
+
 call plug#end()
 
 " ======= Swift indent script settings =======
