@@ -27,11 +27,9 @@ Plug 'vim-airline/vim-airline'
 " Provides lots of handy pairs of bracket-based mappings.
 Plug 'tpope/vim-unimpaired'
 
-" Provides fuzzy search within buffers with quick jump shortcuts.
+" Provides fuzzy incremental search within buffers.
 Plug 'haya14busa/incsearch.vim'
-Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
-Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 
@@ -142,7 +140,7 @@ nnoremap <silent> <Leader>h/ :History/<CR>
 " Automatically displays all buffers when there's only one tab open.
 let g:airline#extensions#tabline#enabled = 1
 
-" ======= Incsearch-easymotion mappings =======
+" ======= Incsearch-fuzzy mappings =======
 "
 "
 
@@ -155,28 +153,5 @@ map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
-" Disable easymotion default mappings.
-let g:EasyMotion_do_mapping = 0
-
-" Makes easymotion search case insensitive.
-let g:EasyMotion_smartcase = 1
-
 " Fuzzy searches forwards, correcting spelling.
-nmap / <Plug>(incsearch-fuzzyspell-/)
-
-" Fuzzy searches backwards, correcting spelling.
-nmap ? <Plug>(incsearch-fuzzyspell-?)
-
-" Combines easymotion and incsearch-fuzzy, providing a fuzzy search and then a
-" set of quick shortcuts to jump to a result.
-noremap <silent><expr> <leader><leader> incsearch#go(<SID>config_easyfuzzymotion())
-
-function! s:config_easyfuzzymotion(...) abort
-	return extend(copy({
-				\   'converters': [incsearch#config#fuzzy#converter()],
-				\   'modules': [incsearch#config#easymotion#module()],
-				\   'keymap': {"\<CR>": '<Over>(easymotion)'},
-				\   'is_expr': 0,
-				\   'is_stay': 1
-				\ }), get(a:, 1, {}))
-endfunction
+nmap <leader><leader> <Plug>(incsearch-fuzzyspell-/)
