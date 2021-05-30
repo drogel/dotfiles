@@ -94,7 +94,7 @@ insertBeforeLineIfNotPresent "Plug 'Chiel92/vim-autoformat'" "call plug#end()" $
 
 # Install the plugin we just appended to .vimrc.
 echo "Installing the plug.vim plugin manager plugins..."
-vim +'PlugInstall --sync' +qall &> /dev/null
+vim +'PlugInstall --sync|qall!' &> /dev/null
 
 # Install coc-sourcekit.
 echo "Installing coc-sourcekit..."
