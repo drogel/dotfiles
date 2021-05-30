@@ -22,7 +22,9 @@ set ignorecase
 set smartcase
 
 " Use 4 spaces when expanding tabs.
+set tabstop=4
 set sts=4
+set shiftwidth=4
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -56,6 +58,11 @@ set exrc
 
 " Mutes sounds when errors occur in vim.
 set noerrorbells
+
+" Tells vim which shell to start when using `:term`. Invoking bash with -l
+" (--login), makes bash read my ~/.profile at startup (among other files) and
+" thus everything sourced from there.
+set shell=bash\ -l
 
 " ======= General mappings =======
 "
@@ -145,6 +152,26 @@ nnoremap <Leader>dU d?\v[A-Z]<CR>
 
 " Appends from the next found parenthesis, brace or square brace.
 nnoremap <Leader>G /[\(\{\[]<CR>a
+
+" When in terminal mode, this mapping goes to terminal-normal mode.
+tnoremap <Esc> <C-\><C-n>
+
+" In order to still be able to use <Esc> on terminal mode, I have to assign it
+" to some other keystroke.
+tnoremap <M-[> <Esc>
+
+" Allows to paste text while in terminal-normal mode by just typing p, as if
+" we were in vim's normal mode.
+" Vim doesn't update from job when in Terminal-Normal, so we won't see our
+" paste until we enter terminal-Job to see our pasted text.
+function! s:SendRegisterToTerm()
+	call term_sendkeys('', getreg(v:register))
+endf
+
+augroup paste_terminal_normal
+	au!
+	au TerminalWinOpen * nnoremap <buffer> p :<C-u>call <sid>SendRegisterToTerm()<CR>
+augroup END
 
 " ======= Swift-specific mappings =======
 "
