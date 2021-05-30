@@ -6,8 +6,8 @@
 " the system.
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -42,6 +42,10 @@ Plug 'haya14busa/incsearch-fuzzy.vim'
 " Modifies " and @ in normal mode, and <C-r> in insert mode, to show a quick
 " preview of the registers.
 Plug 'junegunn/vim-peekaboo'
+
+" Shows git markers in the signcolumn and adds mapps to stage, undo or
+" navigate hunks.
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -153,16 +157,16 @@ nnoremap <silent> <Leader>h/ :History/<CR>
 " Create a command called FindWordUnderCursor that uses fzf.vim and ripgrep to
 " find occurrences of the word under the cursor in code.
 command! -bang -nargs=* FindWordUnderCursor
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.shellescape(expand('<cword>')), 1, fzf#vim#with_preview('up:80%')
-  \   )
+			\ call fzf#vim#grep(
+			\   'rg --column --line-number --no-heading --color=always '.shellescape(expand('<cword>')), 1, fzf#vim#with_preview('up:80%')
+			\   )
 
 " Create a command called FindWORDUnderCursor that uses fzf.vim and ripgrep to
 " find occurrences of the WORD under the cursor in code.
 command! -bang -nargs=* FindWORDUnderCursor
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.shellescape(expand('<cWORD>')), 1, fzf#vim#with_preview('up:80%')
-  \   )
+			\ call fzf#vim#grep(
+			\   'rg --column --line-number --no-heading --color=always '.shellescape(expand('<cWORD>')), 1, fzf#vim#with_preview('up:80%')
+			\   )
 
 " Find occurrences of the word under the cursor in code with ripgrep.
 nnoremap <silent> <leader>s :FindWordUnderCursor<CR>
@@ -192,3 +196,11 @@ map g# <Plug>(incsearch-nohl-g#)
 
 " Fuzzy searches forwards, correcting spelling.
 nmap <leader><leader> <Plug>(incsearch-fuzzyspell-/)
+
+" ======= GitGutter mappings =======
+"
+"
+
+" Jumps between gitgutter hunks.
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
