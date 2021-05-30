@@ -21,12 +21,12 @@ set ignorecase
 " option is on.
 set smartcase
 
-" Use 4 spaces when expanding tabs
+" Use 4 spaces when expanding tabs.
 set sts=4
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=350
+set updatetime=300
 
 " Highlights matching phrases when searching.
 set hlsearch
@@ -36,6 +36,26 @@ set incsearch
 
 " Avoid vim warnings when switching or quitting unsaved buffers.
 set hidden
+
+" Adds a colored column on the column 80, to provide a visual guide on how
+" long code lines should be. I try not to exceed lines longer than 80
+" columns, because that usually means I have too many nested code blocks or
+" complex logic that should be split in parts.
+set colorcolumn=80
+
+" Adds an extra column to the left of the viewport to show LSP or Git
+" integration information.
+set signcolumn=yes
+
+" Adds some lines to offset the viewport when scrolling near the edges of the
+" screen.
+set scrolloff=12
+
+" Sources project-wise .vimrc files when running `$ vim .` on a directory.
+set exrc
+
+" Mutes sounds when errors occur in vim.
+set noerrorbells
 
 " ======= General mappings =======
 "
