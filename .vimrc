@@ -38,7 +38,7 @@ set incsearch
 set hidden
 
 " Adds a colored column on the column 80, to provide a visual guide on how
-" long code lines should be. I try not to exceed lines longer than 80
+" long lines of code should be. I try not to write lines longer than 80
 " columns, because that usually means I have too many nested code blocks or
 " complex logic that should be split in parts.
 set colorcolumn=80
