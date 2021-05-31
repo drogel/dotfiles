@@ -97,6 +97,12 @@ nnoremap <silent> <leader>l :Autoformat<CR>
 "
 "
 
+" Sets git diff merge conflict resolution view vertical by default.
+set diffopt+=vertical
+
+" Opens diff merge conflict resolution split view.
+nnoremap <silent> <leader>gdv :Gdiffsplit!
+
 " Shows fugitive git status menu.
 nnoremap <silent> <leader>gs :G<CR>
 
