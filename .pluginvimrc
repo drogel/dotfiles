@@ -51,6 +51,10 @@ Plug 'airblade/vim-gitgutter'
 " and auto-indenting pairs.
 Plug 'jiangmiao/auto-pairs'
 
+" Dart language support for vim, with features such as filetype detection,
+" syntax highlighting and formatting.
+Plug 'dart-lang/dart-vim-plugin'
+
 call plug#end()
 
 " ======= Swift indent script settings =======
@@ -63,6 +67,15 @@ let g:swiftIndentAfterBrace = 4
 " ======= CoC mappings =======
 "
 "
+
+" Declare the CoC global extensions that we want to use. In this case,
+" sourcekit for Swift LSP support and Flutter for Dart+Flutter LSP support.
+let g:coc_global_extensions = [
+			\ 'coc-flutter',
+			\ 'coc-sourcekit',
+			\ 'coc-json',
+			\ 'coc-yaml',
+			\ ]
 
 " Use `[g` and `]g` to navigate through CoC diagnostics.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -95,7 +108,7 @@ let g:formatdef_apple_swiftformat = '"apple_swiftformat -"'
 let g:formatdef_swiftformat = '"cat - | swiftformat --quiet stdin"'
 
 " Autoformats the current buffer.
-nnoremap <silent> <leader>l :Autoformat<CR>
+autocmd FileType swift nnoremap <silent> <leader>l :Autoformat<CR>
 
 " ======= Fugitive mappings =======
 "
@@ -218,3 +231,11 @@ nmap <leader><leader> <Plug>(incsearch-fuzzyspell-/)
 " Jumps between gitgutter hunks.
 nmap ]h <Plug>(GitGutterNextHunk)
 nmap [h <Plug>(GitGutterPrevHunk)
+
+
+" ======= Dart-vim mappings =======
+"
+"
+
+" Autoformats the current buffer.
+autocmd FileType dart nnoremap <silent> <leader>l :DartFmt<CR>
