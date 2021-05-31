@@ -47,6 +47,10 @@ Plug 'junegunn/vim-peekaboo'
 " navigate hunks.
 Plug 'airblade/vim-gitgutter'
 
+" Utils for writing brackets, braces and parentheses, such as auto-closing
+" and auto-indenting pairs.
+Plug 'jiangmiao/auto-pairs'
+
 call plug#end()
 
 " ======= Swift indent script settings =======
@@ -164,14 +168,18 @@ nnoremap <silent> <Leader>h/ :History/<CR>
 " find occurrences of the word under the cursor in code.
 command! -bang -nargs=* FindWordUnderCursor
 			\ call fzf#vim#grep(
-			\   'rg --column --line-number --no-heading --color=always '.shellescape(expand('<cword>')), 1, fzf#vim#with_preview('up:80%')
+			\   'rg --column --line-number --no-heading --color=always '.shellescape(expand('<cword>')),
+			\ 1,
+			\ fzf#vim#with_preview('up:80%')
 			\   )
 
 " Create a command called FindWORDUnderCursor that uses fzf.vim and ripgrep to
 " find occurrences of the WORD under the cursor in code.
 command! -bang -nargs=* FindWORDUnderCursor
 			\ call fzf#vim#grep(
-			\   'rg --column --line-number --no-heading --color=always '.shellescape(expand('<cWORD>')), 1, fzf#vim#with_preview('up:80%')
+			\   'rg --column --line-number --no-heading --color=always '.shellescape(expand('<cWORD>')),
+			\ 1,
+			\ fzf#vim#with_preview('up:80%')
 			\   )
 
 " Find occurrences of the word under the cursor in code with ripgrep.
