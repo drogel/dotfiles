@@ -73,6 +73,8 @@ let g:swiftIndentAfterBrace = 4
 let g:coc_global_extensions = [
 			\ 'coc-flutter',
 			\ 'coc-sourcekit',
+			\ 'coc-json',
+			\ 'coc-yaml',
 			\ ]
 
 " Use `[g` and `]g` to navigate through CoC diagnostics.
@@ -106,7 +108,7 @@ let g:formatdef_apple_swiftformat = '"apple_swiftformat -"'
 let g:formatdef_swiftformat = '"cat - | swiftformat --quiet stdin"'
 
 " Autoformats the current buffer.
-nnoremap <silent> <leader>l :Autoformat<CR>
+autocmd FileType swift nnoremap <silent> <leader>l :Autoformat<CR>
 
 " ======= Fugitive mappings =======
 "
@@ -229,3 +231,11 @@ nmap <leader><leader> <Plug>(incsearch-fuzzyspell-/)
 " Jumps between gitgutter hunks.
 nmap ]h <Plug>(GitGutterNextHunk)
 nmap [h <Plug>(GitGutterPrevHunk)
+
+
+" ======= Dart-vim mappings =======
+"
+"
+
+" Autoformats the current buffer.
+autocmd FileType dart nnoremap <silent> <leader>l :DartFmt<CR>

@@ -41,15 +41,13 @@ fi
 
 # Since we cannot use dashes when declaring global variables in the .vimrc
 # file, and we need to declare a global variable named after the formatting
-# binary for vim-autoformat to use it, we will copy the swift-format binary to
+# binary for vim-autoformat to use it, we will alias the swift-format binary to
 # apple_swiftformat. That way we can use swift-format with the vim-autoformat
 # plugin.
 appleSwiftFormat=apple_swiftformat
 if ! which appleSwiftFormat > /dev/null; then
-	echo "Copying swift-format to a binary called apple_swiftformat so that we can use it with vim-autoformat..."
-	appleSwiftFormatPath=$(which swift-format)
-	appleSwiftFormatParentPath=$(dirname $appleSwiftFormatPath)
-	cp $appleSwiftFormatPath $appleSwiftFormatParentPath/$appleSwiftFormat
+	echo "Aliasing swift-format to apple_swiftformat so that we can use it with vim-autoformat..."
+	alias apple_swiftformat='swift-format'
 fi
 
 # Install swiftformat if it's not installed already, we need it for

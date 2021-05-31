@@ -41,3 +41,6 @@ alias openlast='ls -t | head -1 | tr \\n \\0 |  xargs -0 open'
 
 # Opens the file that was last modified in the folder with vim.
 alias vimlast='ls -t | head -1 | tr \\n \\0 |  xargs -o vim'
+
+# Distinguish official's Apple swift-format from Nicklockwood's swiftformat.
+alias apple_swiftformat='swift-format'
