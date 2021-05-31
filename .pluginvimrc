@@ -51,6 +51,10 @@ Plug 'airblade/vim-gitgutter'
 " and auto-indenting pairs.
 Plug 'jiangmiao/auto-pairs'
 
+" Dart language support for vim, with features such as filetype detection,
+" syntax highlighting and formatting.
+Plug 'dart-lang/dart-vim-plugin'
+
 call plug#end()
 
 " ======= Swift indent script settings =======
@@ -63,6 +67,13 @@ let g:swiftIndentAfterBrace = 4
 " ======= CoC mappings =======
 "
 "
+
+" Declare the CoC global extensions that we want to use. In this case,
+" sourcekit for Swift LSP support and Flutter for Dart+Flutter LSP support.
+let g:coc_global_extensions = [
+			\ 'coc-flutter',
+			\ 'coc-sourcekit',
+			\ ]
 
 " Use `[g` and `]g` to navigate through CoC diagnostics.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
