@@ -136,19 +136,19 @@ nnoremap <Leader>w $
 nnoremap <Leader>b ^
 
 " Moves to the next uppercase letter, this way it is easy to move through
-" camelCase words.
-nnoremap <Leader>u /[A-Z]<CR>
-nnoremap <Leader>U ?[A-Z]<CR>
+" camelCase words. It does this without highlighting the search.
+nnoremap <Leader>u /[A-Z]<CR>:noh<CR>
+nnoremap <Leader>U ?[A-Z]<CR>:noh<CR>
 
 " Changes to the next uppercase letter, this way it is easy to change through
 " camelCase words.
-nnoremap <Leader>cu c/\v[A-Z]<CR>
-nnoremap <Leader>cU c?\v[A-Z]<CR>
+nnoremap <Leader>cu c/\v[A-Z]<CR>:noh<CR>
+nnoremap <Leader>cU c?\v[A-Z]<CR>:noh<CR>
 
 " Deletes to the next uppercase letter, this way it is easy to delete through
 " camelCase words.
-nnoremap <Leader>du d/\v[A-Z]<CR>
-nnoremap <Leader>dU d?\v[A-Z]<CR>
+nnoremap <Leader>du d/\v[A-Z]<CR>:noh<CR>
+nnoremap <Leader>dU d?\v[A-Z]<CR>:noh<CR>
 
 " Appends from the next found parenthesis, brace or square brace.
 nnoremap <Leader>G /[\(\{\[]<CR>a
