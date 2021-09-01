@@ -92,6 +92,15 @@ nnoremap <bar> i_<Esc>r
 " Yanks the rest of the line, starting from the cursor.
 nmap Y y$
 
+" Jumps to the next occurrence, centers the viewport, and opens just enough
+" folds to make the line in which the cursor is located not folded.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Moves the line where the cursor is one line above and below.
+nnoremap <Leader>k :m .-2<CR>==
+nnoremap <Leader>j :m .+1<CR>==
+
 " Tapping enter on normal mode turns off all highlights.
 nnoremap <CR> :noh<return><esc>
 
