@@ -39,6 +39,9 @@
 	# Copies the name of the current branch
 	cpcb = ! git branch --show-current | pbcopy
 
+	# Pushes the current branch to origin, setting upstream (upstream push)
+	upush = ! git push -u origin $(git branch --show-current)
+
 	# Diff with the previous commit
 	prev = diff HEAD~1
 
@@ -91,3 +94,6 @@
 	# this ~/.gitignore file by default for every Git project on the
 	# machine.
 	excludesfile = ~/.gitignore
+[mergetool]
+	# Stops saving `.orig` backup files after resolving merge conflicts
+	keepBackup = false
