@@ -64,5 +64,8 @@ brew install swift-format
 # Install the Flutter SDK.
 brew install --cask flutter
 
+# Install Amethyst, a window manager for macOS.
+brew install --cask amethyst
+
 # Remove outdated versions from the cellar.
 brew cleanup
