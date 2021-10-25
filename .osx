@@ -13,7 +13,7 @@ hidutil property --set '{"UserKeyMapping":[
 		]}' > /dev/null
 
 # Puts mac to sleep.
-alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
+alias afk='pmset displaysleepnow'
 
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialog).
