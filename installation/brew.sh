@@ -67,5 +67,8 @@ brew install --cask flutter
 # Install Amethyst, a window manager for macOS.
 brew install --cask amethyst
 
+# Install Flycut, a paste history manager.
+brew install --cask flycut
+
 # Remove outdated versions from the cellar.
 brew cleanup
