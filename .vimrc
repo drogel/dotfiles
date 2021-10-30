@@ -59,6 +59,9 @@ set exrc
 " Mutes sounds when errors occur in vim.
 set noerrorbells
 
+" Mutes all bell sounds.
+set belloff=all
+
 " Tells vim which shell to start when using `:term`. Invoking bash with -l
 " (--login), makes bash read my ~/.profile at startup (among other files) and
 " thus everything sourced from there.
