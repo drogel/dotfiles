@@ -55,6 +55,9 @@ Plug 'jiangmiao/auto-pairs'
 " syntax highlighting and formatting.
 Plug 'dart-lang/dart-vim-plugin'
 
+" File system explorer for Vim.
+Plug 'preservim/nerdtree'
+
 call plug#end()
 
 " ======= Swift indent script settings =======
@@ -244,3 +247,22 @@ nmap [h <Plug>(GitGutterPrevHunk)
 
 " Autoformats the current buffer.
 autocmd FileType dart nnoremap <silent> <leader>l :DartFmt<CR>
+
+
+" ======= NerdTree mappings =======
+"
+"
+
+" Jumps between gitgutter hunks.
+nnoremap <C-j> :NERDTreeFocus<CR>
+nnoremap <leader>J :NERDTreeFind<CR>
+
+" Start NERDTree automatically when Vim starts, and put the cursor back in the
+" other window.
+autocmd VimEnter * NERDTree | wincmd p
+
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
