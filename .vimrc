@@ -190,7 +190,7 @@ augroup END
 "
 
 " Swift strong self.
-nnoremap <Leader>I oguard let self = self else { return }<Esc>
+nnoremap <Leader>I $a [weak self] in<ESC>oguard let self = self else { return }<Esc>k$F]a
 
 " Inserts a swift // MARK: - comment.
 nnoremap <Leader>m o// MARK: -<Esc>a_<Esc>r<Space>a
