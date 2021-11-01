@@ -40,7 +40,7 @@
 	cpcb = ! git branch --show-current | pbcopy
 
 	# Pushes the current branch to origin, setting upstream (upstream push)
-	upush = ! git push -u origin $(git branch --show-current)
+	up = ! git push -u origin $(git branch --show-current)
 
 	# Diff with the previous commit
 	prev = diff HEAD~1
