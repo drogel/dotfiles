@@ -44,3 +44,6 @@ alias vimlast='ls -t | head -1 | tr \\n \\0 |  xargs -o vim'
 
 # Distinguish official's Apple swift-format from Nicklockwood's swiftformat.
 alias apple_swiftformat='swift-format'
+
+# Flutter util alias to analyze and run all tests in project with coverage.
+alias fluttercheck='flutter analyze && flutter test --coverage'
