@@ -45,6 +45,10 @@ brew install git-lfs
 # Install jq to manipulate json objects from the command line.
 brew install jq
 
+# Install lcov, a tool which provides information about what parts of a program
+# are actually covered while running a particular test case.
+brew install lcov
+
 # Install fzf and its keybindings for fuzzy completion.
 brew install fzf
 $(brew --prefix)/opt/fzf/install
