@@ -47,3 +47,7 @@ alias apple_swiftformat='swift-format'
 
 # Flutter util alias to analyze and run all tests in project with coverage.
 alias fluttercheck='flutter analyze && flutter test --coverage'
+
+# Flutter util alias to analyze and run all tests in project with coverage,
+# then generate the coverage info site with genhtml and open it.
+alias fluttercoverage='flutter analyze && flutter test --coverage && genhtml coverage/lcov.info -o coverage/html/ && open coverage/html/index.html'
