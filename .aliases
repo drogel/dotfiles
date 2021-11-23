@@ -50,7 +50,7 @@ alias fluttercheck='flutter analyze && flutter test --coverage'
 
 # Flutter util alias to format, analyze and run all tests in project with
 # coverage.
-alias fluttercheck='flutter format . && flutter analyze && flutter test --coverage'
+alias flutterci='flutter format . && flutter analyze && flutter test --coverage'
 
 # Flutter util alias to analyze and run all tests in project with coverage,
 # then generate the coverage info site with genhtml and open it.
