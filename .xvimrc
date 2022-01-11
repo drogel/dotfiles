@@ -15,6 +15,15 @@ nmap <Leader>' :xcmenucmd Show Document Items<CR>
 " Show a quick-selection list of files in the same group of the current file.
 nmap <Leader>" :xcmenucmd Show Group Files<CR>
 
+" Extract selected lines into a method.
+vmap <Leader>e :xcmenucmd Extract to Method<CR>
+
+" Extract selected lines into a variable.
+vmap <Leader>v :xcmenucmd Extract to Variable<CR>
+
+" Rename word under the cursor.
+nmap <Leader>r :xcmenucmd Rename...<CR>
+
 " Find word in the whole workspace.
 nmap <Leader>s "*viw:xccmd findSelectedTextInWorkspace<CR>
 nmap <Leader>S "*viW:xccmd findSelectedTextInWorkspace<CR>
