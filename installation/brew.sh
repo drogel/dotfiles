@@ -74,5 +74,8 @@ brew install --cask amethyst
 # Install Flycut, a paste history manager.
 brew install --cask flycut
 
+# Install tmux, a terminal multiplexer.
+brew install tmux
+
 # Remove outdated versions from the cellar.
 brew cleanup
