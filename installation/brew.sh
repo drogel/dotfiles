@@ -65,6 +65,9 @@ fi
 # Install swift-format, the official Apple CLI tool for formatting swift code.
 brew install swift-format
 
+# Install Nick Lockwood's swiftformat, a CLI tool for formatting swift code.
+brew install swiftformat
+
 # Install the Flutter SDK.
 brew install --cask flutter
 
