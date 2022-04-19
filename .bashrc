@@ -7,6 +7,9 @@ export PATH=$PATH:/usr/local/bin
 # bindings.
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# Adds homebrew to the path for M1 macs.
+eval $(/opt/homebrew/bin/brew shellenv)
+
 # Shell will launch tmux on start up. It will only do so if tmux exists on the
 # system, if we are on an interactive shell, and if tmux is not trying to run
 # within itself.
