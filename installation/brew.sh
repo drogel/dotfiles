@@ -80,5 +80,8 @@ brew install --cask flycut
 # Install tmux, a terminal multiplexer.
 brew install tmux
 
+# Install swiftlint, a Swift tool to enforce coding style and conventions.
+brew install swiftlint
+
 # Remove outdated versions from the cellar.
 brew cleanup
