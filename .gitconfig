@@ -60,8 +60,12 @@
 	# Commit amending and without editing the commit message
 	amend = commit --amend --no-edit
 	
-        # Add all, commit amending without editing the commit message, then push forcing
+	# Add all, commit amending without editing the commit message, then push forcing
 	FORCE = !git add . && git commit --amend --no-edit && git push -f
+
+	# Remove untracked files, including directories (-d) and files ignored by
+	# git (-x), with no dry-run (-f)
+	clear = clean -d -x -f
 
 	# Short way of calling git diff
 	d = diff
