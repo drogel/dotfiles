@@ -7,6 +7,11 @@ export PATH=$PATH:/usr/local/bin
 # bindings.
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# By default, most shells use emacs-style key bindings for command-line editing
+# and modification. I use vim, so this command sets vi keybindings for the bash
+# shell.
+set -o vi
+
 # Adds homebrew to the path for M1 macs.
 eval $(/opt/homebrew/bin/brew shellenv)
 
