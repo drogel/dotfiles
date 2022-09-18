@@ -58,6 +58,9 @@ Plug 'dart-lang/dart-vim-plugin'
 " File system explorer for Vim.
 Plug 'preservim/nerdtree'
 
+" A markdown preview plugin for Vim.
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install && ./install.sh' }
+
 call plug#end()
 
 " ======= Swift indent script settings =======
@@ -266,3 +269,11 @@ autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 
 " Close the tab if NERDTree is the only window remaining in it.
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" ======= MarkdownPreview mappings =======
+"
+"
+
+" When set to 1, Vim will open the markdown preview window after entering the
+" markdown buffer.
+let g:mkdp_auto_start = 1
