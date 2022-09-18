@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Alias needed for the thefuck app to work.
-eval "$(thefuck --alias)"
-
 # Case-insensitive globbing (used in pathname expansion).
 shopt -s nocaseglob;
 
