@@ -35,9 +35,6 @@ brew install screen
 brew install php
 brew install gmp
 
-# Install thefuck, which corrects your previous console command.
-brew install thefuck
-
 # Install git and git Large File System.
 brew install git
 brew install git-lfs
@@ -56,9 +53,10 @@ $(brew --prefix)/opt/fzf/install
 # Install ripgrep for recursively searching directories with a regex patterns.
 brew install ripgrep
 # fzf does not use ripgrep by default, so we need to tell fzf to use ripgrep
-# with the FZF_DEFAULT_COMMAND variable.
+# with the FZF_DEFAULT_COMMAND variable. This also modifies fzf so that it
+# includes dotfiles in the search results.
 if type rg &> /dev/null; then
-	export FZF_DEFAULT_COMMAND='rg --files'
+	export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden'
 	export FZF_DEFAULT_OPTS='-m'
 fi
 
