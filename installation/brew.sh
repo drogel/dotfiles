@@ -83,5 +83,8 @@ brew install tmux
 # Install swiftlint, a Swift tool to enforce coding style and conventions.
 brew install swiftlint
 
+# Install yarn, a software packaging system.
+brew install yarn
+
 # Remove outdated versions from the cellar.
 brew cleanup
