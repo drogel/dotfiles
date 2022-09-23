@@ -55,3 +55,6 @@ alias flutterci='flutter format . && flutter analyze && flutter test --coverage'
 # Flutter util alias to analyze and run all tests in project with coverage,
 # then generate the coverage info site with genhtml and open it.
 alias fluttercoverage='flutter analyze && flutter test --coverage && genhtml coverage/lcov.info -o coverage/html/ && open coverage/html/index.html'
+
+# Removes Xcode's DerivedData, resetting builds and cached dependencies.
+alias resetxcode='rm -rf ~/Library/Developer/Xcode/DerivedData/'
