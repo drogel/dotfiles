@@ -57,4 +57,11 @@ alias flutterci='flutter format . && flutter analyze && flutter test --coverage'
 alias fluttercoverage='flutter analyze && flutter test --coverage && genhtml coverage/lcov.info -o coverage/html/ && open coverage/html/index.html'
 
 # Removes Xcode's DerivedData, resetting builds and cached dependencies.
-alias resetxcode='rm -rf ~/Library/Developer/Xcode/DerivedData/'
+alias rmderived='rm -rf ~/Library/Developer/Xcode/DerivedData/'
+
+# Removes Xcode's Swift Package Manager caches.
+alias rmspm='rm -rf ~/Library/Caches/org.swift.swiftpm/'
+
+# Closes Xcode, removes DerviedData, removes SPM caches, and opens Xcode,
+# loading a .xcworkspace or .xcodeproj in the current folder.
+alias resetxcode='killall Xcode && rmderived && rmspm && xed .'
