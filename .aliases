@@ -62,6 +62,12 @@ alias rmderived='rm -rf ~/Library/Developer/Xcode/DerivedData/'
 # Removes Xcode's Swift Package Manager caches.
 alias rmspm='rm -rf ~/Library/Caches/org.swift.swiftpm/ && rm -rf ~/Library/org.swift.swiftpm/'
 
-# Closes Xcode, removes DerviedData, removes SPM caches, and opens Xcode,
+# Fetches and resolves SPM dependencies for the Xcode project in the current folder.
+alias resolvespm='xcodebuild -resolvePackageDependencies'
+
+# Removes Xcode's Swift Package Manager caches and re-fetches them.
+alias resetspm='rmspm && resolvespm'
+
+# Closes Xcode, removes DerviedData, resets SPM dependencies, and opens Xcode,
 # loading a .xcworkspace or .xcodeproj in the current folder.
-alias resetxcode='killall Xcode && rmderived && rmspm && xed .'
+alias resetxcode='killall Xcode && rmderived && resetspm && xed .'
