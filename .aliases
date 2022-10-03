@@ -60,7 +60,7 @@ alias fluttercoverage='flutter analyze && flutter test --coverage && genhtml cov
 alias rmderived='rm -rf ~/Library/Developer/Xcode/DerivedData/'
 
 # Removes Xcode's Swift Package Manager caches.
-alias rmspm='rm -rf ~/Library/Caches/org.swift.swiftpm/'
+alias rmspm='rm -rf ~/Library/Caches/org.swift.swiftpm/ && rm -rf ~/Library/org.swift.swiftpm/'
 
 # Closes Xcode, removes DerviedData, removes SPM caches, and opens Xcode,
 # loading a .xcworkspace or .xcodeproj in the current folder.
