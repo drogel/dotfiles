@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-# Removes branches that no longer exist in remote but are still present locally (gru is shorthand for git remove untracked).
+# Removes branches that no longer exist in remote but are still present locally
+# (gru is shorthand for git remove untracked).
 alias gru="git fetch --prune && git branch -r | awk '{print \$1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print \$1}' | xargs git branch -D"
 
 # Shortcuts to commonly used folders.
@@ -19,7 +20,13 @@ alias l.='ls -d .*'
 alias c='clear'
 alias h='history'
 alias j='jobs -l'
+# __git_complete is needed so that git completion works when aliasing git to g.
+# Before running git complete, we need to manually download the git-completion
+# script and execute it.
+curl -s https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+. ~/.git-completion.bash
 alias g='git'
+__git_complete g __git_main
 
 # Easy navigation to parent folders.
 alias ..='cd ..'
