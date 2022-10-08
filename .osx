@@ -32,10 +32,6 @@ defaults write com.apple.Finder ShowStatusBar -bool true
 # Finder: show path bar.
 defaults write com.apple.Finder ShowPathbar -bool true
 
-# Finder: press command+control+shift+i to open a new iTerm2 window in the
-# current folder.
-defaults write com.apple.Finder NSUserKeyEquivalents -dict-add "New iTerm2 Window Here" "@~^\$i"
-
 # Press command+control+shift+m to Zoom the currently focused window.
 defaults write -g NSUserKeyEquivalents -dict-add "Zoom" -string "@~^\$m"
 

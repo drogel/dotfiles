@@ -69,6 +69,9 @@ brew install swiftformat
 # Install the Flutter SDK.
 brew install --cask flutter
 
+# Install Alacritty, a GPU-accelerated terminal emulator.
+brew install --q alacritty --no-quarantine
+
 # Install Amethyst, a window manager for macOS.
 brew install --cask amethyst
 
