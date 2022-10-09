@@ -75,7 +75,7 @@
 	# default branch, without checking out the default branch. This command
 	# should be ran from a branch different from the default branch.
 	# The shorthand `pd` stands for "pull default".
-	pd = "!DEFAULT_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'); FIRST_REMOTE=$(git remote | head -1); git fetch $FIRST_REMOTE $DEFAULT_BRANCH:$DEFAULT_BRANCH"
+	pd = "!FIRST_REMOTE=$(git remote | head -1); DEFAULT_BRANCH=$(git remote show $FIRST_REMOTE | sed -n '/HEAD branch/s/.*: //p'); git fetch $FIRST_REMOTE $DEFAULT_BRANCH:$DEFAULT_BRANCH"
 
 	# Find branches containing commit
 	fb = "!f() { git branch -a --contains $1; }; f"
