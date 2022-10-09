@@ -60,8 +60,9 @@
 	# Commit amending and without editing the commit message
 	amend = commit --amend --no-edit
 	
-	# Add all, commit amending without editing the commit message, then push forcing
-	FORCE = !git add . && git commit --amend --no-edit && git push -f
+	# Add all, commit amending without editing the commit message, then push
+	# forcing
+	force = !git add . && git commit --amend --no-edit && git push -f
 
 	# Remove untracked files, including directories (-d) and files ignored by
 	# git (-x), with no dry-run (-f)
@@ -69,6 +70,12 @@
 
 	# Short way of calling git diff
 	d = diff
+
+	# Fetches the default branch from the first remote and updates the local
+	# default branch, without checking out the default branch. This command
+	# should be ran from a branch different from the default branch.
+	# The shorthand `pd` stands for "pull default".
+	pd = "!DEFAULT_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'); FIRST_REMOTE=$(git remote | head -1); git fetch $FIRST_REMOTE $DEFAULT_BRANCH:$DEFAULT_BRANCH"
 
 	# Find branches containing commit
 	fb = "!f() { git branch -a --contains $1; }; f"
