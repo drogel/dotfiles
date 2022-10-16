@@ -105,7 +105,7 @@
 	# Removes branches that no longer exist in the remote but are still present
 	# locally.
 	# The shorthand `ru` stands for "remove untracked".
-	ru = "!git fetch --prune && git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -D"
+	ru = !git fetch -p && git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -D
 
 	# List contributors with number of commits.
 	contributors = shortlog --summary --numbered
