@@ -107,6 +107,11 @@
 	# The shorthand `ru` stands for "remove untracked".
 	ru = !git fetch -p && git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -D
 
+	# Checks out the default branch, pulls it, and removes branches that no
+	# longer exist in the remote but are still present locally.
+	# The shorthand `pp` stands for "pull pruning".
+	pp = !git checkout $(git defaultbranch) && git psu && git ru
+
 	# List contributors with number of commits.
 	contributors = shortlog --summary --numbered
 
