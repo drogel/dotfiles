@@ -72,7 +72,7 @@
 	d = diff
 
 	# Returns the default branch for the current git project.
-	defaultbranch = "!git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'"
+	defaultbranch = "!FIRST_REMOTE=$(git remote | head -1); git remote show $FIRST_REMOTE | sed -n '/HEAD branch/s/.*: //p'"
 
 	# Fetches the default branch from the first remote and updates the local
 	# default branch, without checking out the default branch. This command
