@@ -58,7 +58,7 @@
 	acm = ! git add . && git commit
 
 	# Commit amending all, without editing the commit message
-	amend = ! git add . && commit --amend --no-edit
+	amend = ! git add . && git commit --amend --no-edit
 	
 	# Add all, commit amending without editing the commit message, then push
 	# forcing
