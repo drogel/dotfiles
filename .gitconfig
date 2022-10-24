@@ -57,8 +57,8 @@
 	# Add everything on the current folder and commit
 	acm = ! git add . && git commit
 
-	# Commit amending and without editing the commit message
-	amend = commit --amend --no-edit
+	# Commit amending all, without editing the commit message
+	amend = ! git add . && commit --amend --no-edit
 	
 	# Add all, commit amending without editing the commit message, then push
 	# forcing
