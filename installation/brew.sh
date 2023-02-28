@@ -87,5 +87,11 @@ brew install swiftlint
 # Install yarn, a software packaging system.
 brew install yarn
 
+# Install proxyman, an HTTP debugging proxy app.
+brew install --cask proxyman
+
+# Install postman, a collaboration platform for API development.
+brew install --cask postman
+
 # Remove outdated versions from the cellar.
 brew cleanup
