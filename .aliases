@@ -74,3 +74,6 @@ alias resetspm='rmspm && resolvespm'
 # Closes Xcode, removes DerviedData, resets SPM dependencies, and opens Xcode,
 # loading a .xcworkspace or .xcodeproj in the current folder.
 alias resetxcode='killall Xcode && rmderived && resetspm && xed .'
+
+# Opens the iOS simulator independently, without needing to launch Xcode.
+alias opensimulator='open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'
