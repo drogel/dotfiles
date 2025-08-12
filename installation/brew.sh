@@ -93,5 +93,8 @@ brew install --cask proxyman
 # Install postman, a collaboration platform for API development.
 brew install --cask postman
 
+# Install pre-commit, a git hooks manager.
+brew install pre-commit
+
 # Remove outdated versions from the cellar.
 brew cleanup
