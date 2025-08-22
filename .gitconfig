@@ -117,6 +117,15 @@
 
 	# Show the user email for the current repository.
 	whoami = config user.email
+
+	# Ignore a file only locally, without polluting .gitignore of the project
+	ignore = update-index --assume-unchanged
+
+	# Unignore a file only locally, without polluting .gitignore of the project
+	unignore = update-index --no-assume-unchanged
+
+	# List the files ignored only locally
+	ignored = !git ls-files -v | grep "^[[:lower:]]"
 [http]
 	sslVerify = true
 [core]
