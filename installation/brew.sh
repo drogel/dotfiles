@@ -96,5 +96,8 @@ brew install --cask postman
 # Install pre-commit, a git hooks manager.
 brew install pre-commit
 
+# Install GitHub CLI, a terminal tool to interact with GitHub
+brew install gh
+
 # Remove outdated versions from the cellar.
 brew cleanup
