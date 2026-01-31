@@ -37,6 +37,14 @@ for file in $DOTFILES_DIR/.{gitconfig,gitignore,vimrc,xvimrc,gvimrc,ideavimrc,vi
 	fi
 done;
 
+# Install Cursor user-level skills by copying the folder into ~/.cursor.
+if [ -d "$DOTFILES_DIR/.cursor/skills" ]; then
+	echo "Installing Cursor skills into ~/.cursor/skills...";
+	mkdir -p ~/.cursor;
+	rm -rf ~/.cursor/skills;
+	cp -R "$DOTFILES_DIR/.cursor/skills" ~/.cursor/;
+fi;
+
 # Install the dracula vim theme.
 source installation/install_vim_dracula.sh
 
