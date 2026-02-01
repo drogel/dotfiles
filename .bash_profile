@@ -23,3 +23,6 @@ if [ "$(uname)" == "Darwin" ]; then
 	macosFiles=("osx")
 	sourceFiles "${macosFiles[@]}"
 fi
+
+# Adds Cursor binary locations to the path
+export PATH="$HOME/.local/bin:$PATH"
