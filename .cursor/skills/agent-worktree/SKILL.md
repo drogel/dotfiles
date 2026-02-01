@@ -30,6 +30,7 @@ Create a new worktree for a subtask and launch a new agent in a tmux window spli
 6. Create the worktree and branch as a sibling directory:
    - Use the worktree name as the branch name.
 7. Open a tmux window in the new worktree, split vertically, start the agent, using the `agent` CLI command (NOT `cursor`), and send the initial prompt.
+   - Name the tmux window with relevant short description (same as the worktree identifier).
 8. Continue the parent conversation after the initial prompt is sent.
 
 ## Example Commands
@@ -50,7 +51,7 @@ git worktree add -b "<worktree_name>" "../<worktree_name>" "<base_branch>"
 
 Start tmux window and agent in plan mode:
 ```
-tmux new-window -c "../<worktree_name>" \; \
+tmux new-window -n "<description>" -c "../<worktree_name>" \; \
   split-window -h -c "../<worktree_name>" \; \
   send-keys agent Space -p Space --approve-mcps Space "<initial_prompt>" C-m
 ```
