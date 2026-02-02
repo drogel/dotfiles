@@ -26,3 +26,6 @@ fi
 
 # Adds Cursor binary locations to the path
 export PATH="$HOME/.local/bin:$PATH"
+
+# Sets up rbenv
+echo 'eval "$(rbenv init - bash)"' >> ~/.bash_profile
