@@ -3,6 +3,19 @@
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+# Set UTF-8 en US locales for processes that depend on it (like fastlane).
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+
+# Custom env var to set the agent to use by default, so that I can easily
+# switch in my automations from Claude to Cursor.
+export AGENT="${AGENT:-claude --dangerously-skip-permissions}"
+
+# Sets the agent for the current session and updates tmux's environment so that
+# new panes spawned via tmux keybindings use the updated value.
+set_agent() { export AGENT="$1"; tmux set-environment AGENT "$1"; }
+
 # Source the shell dotfiles.
 # * .private is used for configurations I don't want to share.
 sourceFiles() {
