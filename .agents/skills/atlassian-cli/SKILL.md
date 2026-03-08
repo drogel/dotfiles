@@ -19,34 +19,12 @@ The Atlassian CLI (`acli`) provides command-line access to Jira, Confluence, and
 - Automating Atlassian workflows
 
 **When NOT to use:**
-- When web UI is more appropriate (one-off visual tasks)
-- When API tokens/integrations are already available
+- Dashboard configuration, permission schemes, or other admin UI tasks
+- When direct REST API tokens/integrations are already available
 
 ## Authentication - FIRST STEP ALWAYS
 
-```dot
-digraph auth_check {
-    "User requests acli command" [shape=doublecircle];
-    "Check auth status" [shape=box];
-    "Authenticated?" [shape=diamond];
-    "Run acli command" [shape=box];
-    "Explain: acli auth login" [shape=box];
-
-    "User requests acli command" -> "Check auth status";
-    "Check auth status" -> "Authenticated?";
-    "Authenticated?" -> "Run acli command" [label="yes"];
-    "Authenticated?" -> "Explain: acli auth login" [label="no"];
-}
-```
-
-**Before ANY acli operation:**
-```bash
-# Check if authenticated
-acli auth status
-
-# If not authenticated, login first
-acli auth login
-```
+Before ANY acli operation, run `acli auth status`. If not authenticated, run `acli auth login`.
 
 ## Command Structure
 
@@ -207,35 +185,6 @@ These indicate you're about to make a mistake:
 
 **All of these mean: Stop, re-read this skill, use correct syntax.**
 
-## Workflow Pattern
-
-```dot
-digraph workflow {
-    "acli request" [shape=doublecircle];
-    "Check auth status" [shape=box];
-    "Authenticated?" [shape=diamond];
-    "Run acli auth login" [shape=box];
-    "Verify command with --help" [shape=box];
-    "Check for batch operation?" [shape=diamond];
-    "Use --jql/--filter/--key" [shape=box];
-    "Single operation" [shape=box];
-    "Choose output format" [shape=box];
-    "Execute command" [shape=box];
-
-    "acli request" -> "Check auth status";
-    "Check auth status" -> "Authenticated?";
-    "Authenticated?" -> "Run acli auth login" [label="no"];
-    "Run acli auth login" -> "Verify command with --help";
-    "Authenticated?" -> "Verify command with --help" [label="yes"];
-    "Verify command with --help" -> "Check for batch operation?";
-    "Check for batch operation?" -> "Use --jql/--filter/--key" [label="multiple items"];
-    "Check for batch operation?" -> "Single operation" [label="single item"];
-    "Use --jql/--filter/--key" -> "Choose output format";
-    "Single operation" -> "Choose output format";
-    "Choose output format" -> "Execute command";
-}
-```
-
 ## Example Workflows
 
 ### Sprint Report
@@ -270,14 +219,10 @@ acli auth status
 # 2. Generate template
 acli jira workitem create --generate-json > template.json
 
-# 3. Edit template.json with your data
+# 3. Edit template.json with your data (can contain multiple items)
 
-# 4. Create from template (repeat for each)
-acli jira workitem create --from-json issue1.json
-acli jira workitem create --from-json issue2.json
-
-# OR use create-bulk
-acli jira workitem create-bulk
+# 4. Bulk create from template
+acli jira workitem create-bulk --from-json template.json
 ```
 
 ## Getting Help
