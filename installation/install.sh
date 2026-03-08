@@ -37,12 +37,19 @@ for file in $DOTFILES_DIR/.{gitconfig,gitignore,vimrc,xvimrc,gvimrc,ideavimrc,vi
 	fi
 done;
 
-# Install Cursor user-level skills by copying the folder into ~/.cursor.
-if [ -d "$DOTFILES_DIR/.cursor/skills" ]; then
-	echo "Installing Cursor skills into ~/.cursor/skills...";
-	mkdir -p ~/.cursor;
-	rm -rf ~/.cursor/skills;
-	cp -R "$DOTFILES_DIR/.cursor/skills" ~/.cursor/;
+# Copy shared agent rules, commands, and skills to ~/.claude and ~/.cursor.
+if [ -d "$DOTFILES_DIR/.agents" ]; then
+	echo "Copying agent rules, commands, and skills to ~/.claude and ~/.cursor...";
+	for target in ~/.claude ~/.cursor; do
+		mkdir -p "$target";
+		for content in commands rules skills; do
+			if [ -d "$DOTFILES_DIR/.agents/$content" ]; then
+				rm -rf "$target/$content";
+				cp -R "$DOTFILES_DIR/.agents/$content" "$target/$content";
+				echo "  Copied $content to $target/$content";
+			fi
+		done
+	done
 fi;
 
 # Install the dracula vim theme.
