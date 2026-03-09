@@ -24,7 +24,7 @@ The Atlassian CLI (`acli`) provides command-line access to Jira, Confluence, and
 
 ## Authentication - FIRST STEP ALWAYS
 
-Before ANY acli operation, run `acli auth status`. If not authenticated, run `acli auth login`.
+Before ANY acli operation, run `acli <product> auth status`. If not authenticated, run `acli <product> auth login`.
 
 ## Command Structure
 
@@ -43,7 +43,6 @@ acli jira workitem search --jql "..."
 ## Quick Reference
 
 ### Common Products
-- `auth` - Authentication management
 - `jira` - Jira Cloud commands
 - `confluence` - Confluence Cloud commands
 - `admin` - Admin operations
@@ -161,7 +160,7 @@ acli jira workitem create --editor
 
 | Mistake | Why It's Wrong | Correct Approach |
 |---------|---------------|-----------------|
-| Skipping auth check | Commands fail without authentication | Always run `acli auth status` first |
+| Skipping auth check | Commands fail without authentication | Always run `acli <product> auth status` first |
 | Using `--action` flag | Old syntax doesn't work in modern acli | Use `acli <product> <entity> <action>` |
 | `--outputFormat 999` | Wrong flag | Use `--csv` |
 | `--columns` parameter | Doesn't exist | Use `--fields` |
@@ -190,7 +189,7 @@ These indicate you're about to make a mistake:
 ### Sprint Report
 ```bash
 # 1. Check auth
-acli auth status
+acli <product> auth status
 
 # 2. Search sprint issues with CSV output
 acli jira workitem search --jql "project = TEAM AND sprint = 42" --fields "key,summary,status,assignee" --csv > sprint-report.csv
@@ -199,7 +198,7 @@ acli jira workitem search --jql "project = TEAM AND sprint = 42" --fields "key,s
 ### Bulk Status Update
 ```bash
 # 1. Check auth
-acli auth status
+acli <product> auth status
 
 # 2. Verify issues first
 acli jira workitem search --jql "project = MOBILE AND status = 'In Review'" --count
@@ -214,7 +213,7 @@ acli jira workitem assign --jql "project = MOBILE AND status = Done" --assignee 
 ### Create Multiple Issues
 ```bash
 # 1. Check auth
-acli auth status
+acli <product> auth status
 
 # 2. Generate template
 acli jira workitem create --generate-json > template.json
